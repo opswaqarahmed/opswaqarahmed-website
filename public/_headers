@@ -1,0 +1,32 @@
+# Cloudflare Pages response headers.
+# CSP below is the owner-specified policy, plus static.cloudflareinsights.com / cloudflareinsights.com
+# so the existing Cloudflare Web Analytics keeps working.
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://link.msgsndr.com https://widgets.leadconnectorhq.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://api.leadconnectorhq.com https://www.loom.com https://www.youtube-nocookie.com; connect-src 'self' https://formspree.io https://services.leadconnectorhq.com https://widgets.leadconnectorhq.com https://cloudflareinsights.com; upgrade-insecure-requests;
+
+/.well-known/security.txt
+  Content-Type: text/plain; charset=utf-8
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+
+/css/*
+  Cache-Control: public, max-age=86400
+
+/js/*
+  Cache-Control: public, max-age=86400
+
+/assets/*
+  Cache-Control: public, max-age=604800

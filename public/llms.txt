@@ -1,0 +1,56 @@
+# Waqar Ahmed | AI Automation & Agentic AI
+
+> AI Automation & Agentic AI Specialist. AI agents and automation for renovation, remodeling and home-service businesses: 24/7 AI website receptionists (RAG), GoHighLevel (GHL) and n8n systems, and AI-assisted websites. Based in Khairpur District, Sindh, Pakistan. Working remotely with clients worldwide. Make every lead move forward.
+
+Waqar Ahmed builds AI website receptionists that answer from a business's own approved content, lead systems in GoHighLevel, n8n workflows and AI agents, and conversion websites built with AI-assisted tools (Google Antigravity, Claude, Gemini, ChatGPT). Every enquiry is answered, followed up and accounted for, and decisions such as prices stay with a person. Clients keep full ownership of their accounts; he works through role-based team invites and never asks for passwords.
+
+## About
+- Background: about eight years in branch banking operations at MCB Bank before moving into automation.
+- Working in AI automation since May 2022.
+- Training: LOOP Institute of Applied AI, GoHighLevel certification training: completed.
+- Location: Khairpur District, Sindh, Pakistan. Working remotely with clients worldwide; all work is remote.
+- Contact: https://opswaqarahmed.pages.dev/contact/ (15-minute workflow audit request), email meetwith.waqarahmed@gmail.com or https://www.linkedin.com/in/opswaqarahmed/
+
+## Services
+- [24/7 AI Website Receptionist](https://opswaqarahmed.pages.dev/services/): An AI agent on your website that answers visitor questions day and night from your own approved content, then captures the enquiry so your team can pick it up with the details already written down.
+- [GoHighLevel lead systems](https://opswaqarahmed.pages.dev/services/): Every enquiry is captured, qualified, routed to the right person and followed up, with clear rules for when follow-up stops, and one pipeline the owner can trust.
+- [n8n workflows and AI agents](https://opswaqarahmed.pages.dev/services/): The work GoHighLevel cannot do well alone: integrations, data handling, scoring and multi-step agent workflows, each with an error path and a human checkpoint.
+- [Websites built to convert](https://opswaqarahmed.pages.dev/services/): Fast, accessible websites designed and developed with AI-assisted tools, wired to your CRM forms and, if you want one, your AI receptionist.
+- [Automation care](https://opswaqarahmed.pages.dev/services/): After launch, workflows and agents are documented, monitored, fixed when something breaks and improved as the business changes.
+
+## Engagements
+- Single workflow fix (3 to 5 business days): One urgent GoHighLevel or n8n bottleneck fixed, with duplicate protection and retry on failure.
+- 24/7 AI Website Receptionist (Agreed in the scope): A knowledge base built from your approved content, an AI agent that answers from it, a chat widget on your website and a handover path to your team.
+- Lead-to-site-visit system (7 to 10 business days): GoHighLevel intake form, qualification tags, a four-email follow-up sequence that stops on reply, and site-visit calendar booking.
+- Full AI + GHL + n8n operations system (10 to 14 business days): n8n lead scoring, supplier quote requests by trade and city, a lead-source dashboard and a Loom handover library. The AI receptionist can be added.
+- Conversion website (Agreed in the scope): A fast, accessible website with clear service pages, proof and forms connected to your CRM.
+
+## Case studies (Elite Home Renovations)
+These are sandbox builds for Elite Home Renovations, a practice account in the LOOP Institute of Applied AI course, using test or demo data. They are not paid client deployments.
+- [Website Estimate Assistant / 24/7 AI Website Receptionist](https://opswaqarahmed.pages.dev/projects/website-estimate-assistant/): A RAG agent and chat widget for the Elite Home Renovations website that answers visitor questions from the business's own content, day or night. Offered to clients as the 24/7 AI Website Receptionist.
+- [From site visit to supplier quote](https://opswaqarahmed.pages.dev/projects/supplier-quote-requests/): n8n + GHL supplier matching; one sample run found 4 matching suppliers with 0 send failures; about 17 hours a month saved is an estimate (8 site visits a week), not a measured result.
+- [Quote intake and lead scoring](https://opswaqarahmed.pages.dev/projects/quote-intake-followup/): An 8-node n8n workflow scores new GoHighLevel contacts every 10 minutes and routes hot, warm and nurture leads to the right next step.
+- [Lead-to-site-visit system](https://opswaqarahmed.pages.dev/projects/lead-to-site-visit/): A Free Estimate Request funnel, two pipelines, a 60-minute site-visit calendar and a four-email follow-up that stops when a visit is booked.
+- [Reporting and lead-source attribution](https://opswaqarahmed.pages.dev/projects/reporting-dashboards/): Five UTM contact fields, source-based workflow branching and owner notifications, so every lead shows where it came from.
+- [AI customer experiences](https://opswaqarahmed.pages.dev/projects/ai-customer-experiences/): A 24/7 chat and voice qualifier, plus a post-job review system that routes happy and unhappy customers differently.
+
+## Key pages
+- [Home](https://opswaqarahmed.pages.dev/)
+- [Services and FAQ](https://opswaqarahmed.pages.dev/services/)
+- [Work](https://opswaqarahmed.pages.dev/projects/)
+- [About](https://opswaqarahmed.pages.dev/about/)
+- [Contact](https://opswaqarahmed.pages.dev/contact/)
+- [Privacy Policy](https://opswaqarahmed.pages.dev/privacy/)
+- [Terms of Service](https://opswaqarahmed.pages.dev/terms/)
+
+## Profiles
+- [LinkedIn](https://www.linkedin.com/in/opswaqarahmed/)
+- [YouTube](https://www.youtube.com/@opswaqarahmed)
+- [GitHub](https://github.com/opswaqarahmed)
+- [X](https://x.com/opswaqarahmed)
+- [Facebook](https://www.facebook.com/opswaqarahmed)
+- [Instagram](https://www.instagram.com/opswaqarahmed/)
+- [Threads](https://www.threads.com/@opswaqarahmed)
+- [TikTok](https://www.tiktok.com/@opswaqarahmed)
+- [Linktree](https://linktr.ee/opswaqarahmed)
+- [Published LOOP project](https://loop.org.pk/student-projects/supplier-quote-request-automation-ghl-n8n/)

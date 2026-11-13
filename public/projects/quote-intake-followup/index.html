@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lead scoring and follow-up with n8n and GoHighLevel | Waqar Ahmed</title>
+<meta name="description" content="Sandbox case study: an 8-node n8n workflow that scores GoHighLevel contacts every 10 minutes and routes hot, warm and nurture leads for a renovation business.">
+<meta name="author" content="Waqar Ahmed">
+<meta name="theme-color" content="#0B1626">
+<link rel="canonical" href="https://opswaqarahmed.pages.dev/projects/quote-intake-followup/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Waqar Ahmed | AI Automation &amp; Agentic AI">
+<meta property="og:title" content="Lead scoring and follow-up with n8n and GoHighLevel | Waqar Ahmed">
+<meta property="og:description" content="Sandbox case study: an 8-node n8n workflow that scores GoHighLevel contacts every 10 minutes and routes hot, warm and nurture leads for a renovation business.">
+<meta property="og:url" content="https://opswaqarahmed.pages.dev/projects/quote-intake-followup/">
+<meta property="og:image" content="https://opswaqarahmed.pages.dev/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Waqar Ahmed, AI Automation and Agentic AI Specialist. Make every lead move forward. AI receptionists, GoHighLevel and n8n systems for home-service businesses.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lead scoring and follow-up with n8n and GoHighLevel | Waqar Ahmed">
+<meta name="twitter:description" content="Sandbox case study: an 8-node n8n workflow that scores GoHighLevel contacts every 10 minutes and routes hot, warm and nurture leads for a renovation business.">
+<meta name="twitter:image" content="https://opswaqarahmed.pages.dev/assets/img/og-image.png">
+<meta name="twitter:image:alt" content="Waqar Ahmed, AI Automation and Agentic AI Specialist. Make every lead move forward. AI receptionists, GoHighLevel and n8n systems for home-service businesses.">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/img/wa-mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/assets/fonts/dm-sans-latin.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="/css/site.css?v=30">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://opswaqarahmed.pages.dev/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://opswaqarahmed.pages.dev/projects/"},{"@type":"ListItem","position":3,"name":"Quote intake and lead scoring"}]},{"@type":"Article","@id":"https://opswaqarahmed.pages.dev/projects/quote-intake-followup/#article","headline":"Quote intake and lead scoring","description":"Sandbox case study: an 8-node n8n workflow that scores GoHighLevel contacts every 10 minutes and routes hot, warm and nurture leads for a renovation business.","author":{"@id":"https://opswaqarahmed.pages.dev/#person"},"publisher":{"@id":"https://opswaqarahmed.pages.dev/#person"},"datePublished":"2026-11-07","dateModified":"2026-11-14","inLanguage":"en","mainEntityOfPage":"https://opswaqarahmed.pages.dev/projects/quote-intake-followup/","about":["GoHighLevel","n8n","Workflow automation"]}]}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header on-navy">
+<div class="container header-inner">
+<a class="brand" href="/" aria-label="Waqar Ahmed, home">
+<img src="/assets/img/wa-mark.svg" alt="" width="40" height="40">
+<span class="brand-name">Waqar Ahmed<small>AI automation &amp; agentic AI</small></span>
+</a>
+<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+<span class="nav-toggle-bars" aria-hidden="true"></span>
+Menu
+</button>
+<nav id="site-nav" class="site-nav" aria-label="Main">
+<ul>
+<li><a href="/services/">Services</a></li><li><a href="/projects/website-estimate-assistant/">AI Receptionist</a></li><li><a href="/projects/" aria-current="page">Work</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li>
+<li><a class="btn" href="/contact/#audit-form">Request an automation audit</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main id="main">
+<div class="page-hero on-navy">
+<div class="container">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/projects/">Work</a></li><li><span aria-current="page">Quote intake and lead scoring</span></li></ol></nav>
+<h1>Quote intake and lead scoring</h1>
+<p class="lead">An 8-node n8n workflow, Elite Lead Scoring, that checks GoHighLevel every 10 minutes, scores new contacts on four details and sends each lead to the right next step.</p><ul class="chips" aria-label="Project labels"><li><span class="chip chip--sandbox">Sandbox build</span></li></ul><p class="updated">n8n + GoHighLevel. Last updated <time datetime="2026-11-14">14 November 2026</time>.</p>
+</div>
+</div>
+<div class="section">
+<div class="container prose">
+<ul class="figures"><li><span class="chip chip--plain">Build spec</span><span class="fig">8</span><span class="what">nodes in the n8n scoring workflow</span></li><li><span class="chip chip--plain">Build spec</span><span class="fig">10 min</span><span class="what">between scoring runs</span></li><li><span class="chip chip--plain">Build spec</span><span class="fig">3</span><span class="what">routing paths: hot, warm, nurture</span></li><li><span class="chip chip--plain">Build spec</span><span class="fig">1 hr</span><span class="what">due time for the hot-lead call task</span></li></ul>
+<h2>The problem</h2>
+<p>Renovation companies get estimate requests of very different value. Without scoring, a large kitchen remodel booked for next month waits in the same queue as a small repair someday, and the best leads go cold.</p>
+<h2>What I built</h2>
+<p>The <strong>Elite Lead Scoring</strong> workflow in n8n runs in eight nodes:</p>
+<figure class="arch"><ol class="chain"><li class="is-n8n"><span class="tool">n8n</span><strong>Schedule trigger</strong><span class="does">Runs every 10 minutes.</span></li><li class="is-n8n"><span class="tool">n8n + GoHighLevel API</span><strong>Get contacts</strong><span class="does">Fetches contacts from GoHighLevel through the API.</span></li><li class="is-n8n"><span class="tool">n8n</span><strong>Filter</strong><span class="does">Keeps only contacts tagged <code>needs-scoring</code>.</span></li><li class="is-n8n"><span class="tool">n8n</span><strong>Score four details</strong><span class="does">Project Type, Budget Range, Timeline and City.</span></li><li class=""><span class="tool">GoHighLevel</span><strong>Route the lead</strong><span class="does">Sends each contact down one of three paths based on its score.</span></li></ol><figcaption>Workflow architecture as built in the sandbox account.</figcaption></figure>
+<h2>How leads are routed</h2>
+<div class="table-wrap"><table class="ruled">
+<caption class="visually-hidden">Routing rules</caption>
+<thead><tr><th scope="col">Tag</th><th scope="col">What happens next</th></tr></thead>
+<tbody>
+<tr><td><code>hot-lead</code></td><td>A call task is created, due within 1 hour.</td></tr>
+<tr><td><code>warm-lead</code></td><td>The contact joins the nurture sequence.</td></tr>
+<tr><td><code>nurture-lead</code></td><td>The contact is added to the newsletter list.</td></tr>
+</tbody></table></div>
+<h2>Why it is built this way</h2>
+<ul>
+<li>A tag (<code>needs-scoring</code>) marks which contacts still need work, so each one is scored once.</li>
+<li>Scoring rules sit in one place in n8n, so the business can change what counts as a hot lead.</li>
+<li>The fast path for hot leads is a dated task for a person, not just another automated message.</li>
+</ul>
+<aside class="provenance" aria-labelledby="prov-title"><span class="chip chip--sandbox">Sandbox reference build</span><h2 id="prov-title">Build provenance</h2><p>I built and tested this workflow inside a dedicated GoHighLevel and n8n sandbox, so you can inspect the exact architecture without exposing any private client CRM data.</p><dl><div><dt>Build type</dt><dd>Sandbox reference build</dd></div><div><dt>Program</dt><dd>LOOP Institute of Applied AI, GoHighLevel and n8n assignment</dd></div><div><dt>Sandbox account</dt><dd>Elite Home Renovations, a dedicated GoHighLevel practice account</dd></div><div><dt>Data</dt><dd>Test data shaped like real renovation jobs</dd></div><div><dt>Deployment</dt><dd>Not a paid client deployment</dd></div><div><dt>Results</dt><dd>Figures are labelled as build specs, sample-run results or estimates. None were measured with a live business or independently audited.</dd></div></dl></aside>
+<h2>Before using this for a live business</h2>
+<ul>
+<li>Measure the current process first, so any improvement can be compared with a real baseline.</li>
+<li>Agree which accounts, data and workflows the business owns. I work through a role-based team invite.</li>
+<li>Confirm third-party costs, such as GoHighLevel, n8n and messaging plans.</li>
+<li>Test normal, duplicate, missing-data and failure cases with the team's real rules.</li>
+</ul>
+<div class="btn-row"><a class="btn" href="/contact/#audit-form">Request an automation audit</a><a class="btn btn--quiet" href="/projects/">All case studies</a></div>
+</div>
+</div>
+</main>
+<footer class="site-footer on-navy">
+<div class="container footer-grid">
+<div class="footer-brand">
+<a class="brand" href="/" aria-label="Waqar Ahmed, home">
+<img src="/assets/img/wa-mark.svg" alt="" width="40" height="40" loading="lazy">
+<span class="brand-name">Waqar Ahmed<small>AI automation &amp; agentic AI</small></span>
+</a>
+<p class="footer-tagline">Make every lead move forward.</p>
+<p>AI Automation &amp; Agentic AI Specialist. AI receptionists, GoHighLevel and n8n systems and conversion websites for renovation and home-service businesses.</p>
+<p class="meta"><span>Khairpur District, Sindh, Pakistan</span><span>Working remotely with clients worldwide</span><a href="mailto:meetwith.waqarahmed@gmail.com">meetwith.waqarahmed@gmail.com</a></p>
+</div>
+<nav aria-labelledby="footer-explore">
+<h2 class="footer-h" id="footer-explore">Site</h2>
+<ul class="footer-links"><li><a href="/">Home</a></li><li><a href="/services/">Services</a></li><li><a href="/projects/website-estimate-assistant/">AI Receptionist</a></li><li><a href="/projects/">Work</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul>
+</nav>
+<nav aria-labelledby="footer-social">
+<h2 class="footer-h" id="footer-social">Profiles</h2>
+<ul class="footer-links footer-links--2"><li><a href="https://www.linkedin.com/in/opswaqarahmed/" rel="noopener noreferrer" target="_blank">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></li><li><a href="https://www.youtube.com/@opswaqarahmed" rel="noopener noreferrer" target="_blank">YouTube<span class="visually-hidden"> (opens in a new tab)</span></a></li><li><a href="https://github.com/opswaqarahmed" rel="noopener noreferrer" target="_blank">GitHub<span class="visually-hidden"> (opens in a new tab)</span></a></li><li><a href="https://x.com/opswaqarahmed" rel="noopener noreferrer" target="_blank">X<span class="visually-hidden"> (opens in a new tab)</span></a></li><li><a href="https://www.facebook.com/opswaqarahmed" rel="noopener noreferrer" target="_blank">Facebook<span class="visually-hidden"> (opens in a new tab)</span></a></li><li><a href="https://www.instagram.com/opswaqarahmed/" rel="noopener noreferrer" target="_blank">Instagram<span class="visually-hidden"> (opens in a new tab)</span></a></li><li><a href="https://www.threads.com/@opswaqarahmed" rel="noopener noreferrer" target="_blank">Threads<span class="visually-hidden"> (opens in a new tab)</span></a></li><li><a href="https://www.tiktok.com/@opswaqarahmed" rel="noopener noreferrer" target="_blank">TikTok<span class="visually-hidden"> (opens in a new tab)</span></a></li><li><a href="https://linktr.ee/opswaqarahmed" rel="noopener noreferrer" target="_blank">Linktree<span class="visually-hidden"> (opens in a new tab)</span></a></li></ul>
+</nav>
+</div>
+<div class="container"><div class="footer-bottom">
+<p>© 2026 Waqar Ahmed | AI Automation &amp; Agentic AI. All rights reserved.</p>
+<nav aria-label="Legal and site files">
+<ul>
+<li><a href="/privacy/">Privacy</a></li>
+<li><a href="/terms/">Terms</a></li>
+<li><a href="/llms.txt" title="Plain-text summary of this site for AI assistants">AI summary</a></li>
+<li><a href="/sitemap.xml">Sitemap</a></li>
+</ul>
+</nav>
+</div></div>
+</footer>
+<script src="/js/main.js?v=30"></script>
+</body>
+</html>

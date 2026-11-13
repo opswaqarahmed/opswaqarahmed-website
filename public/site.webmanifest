@@ -1,0 +1,21 @@
+{
+  "name": "Waqar Ahmed | AI Automation & Agentic AI",
+  "short_name": "Waqar Ahmed",
+  "description": "AI automation and agentic AI for renovation and home-service businesses.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F4F6F8",
+  "theme_color": "#0B1626",
+  "icons": [
+    {
+      "src": "/assets/img/wa-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
