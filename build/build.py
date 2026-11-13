@@ -61,6 +61,7 @@ BOOKING_URL = ''           # PLACEHOLDER: calendar link (GHL calendar, Cal.com..
 TESTIMONIALS = []          # PLACEHOLDER: real, approved quotes only: [('Quote text', 'Name', 'Role, Company')]
 PRICE_FROM = {}            # PLACEHOLDER: e.g. {'Single workflow fix': 'From $X'}. Empty = "Quoted in writing after the audit"
 CASE_SHOTS = {}            # PLACEHOLDER: sanitized screenshot per case study: {'supplier-quote-requests': ('/assets/img/x.png', 'Alt text')}
+CF_ANALYTICS_TOKEN = '36599263344846338d6b1fcb73837786'  # Cloudflare Web Analytics (cookie-free). Empty = no beacon
 FORMSPREE_ID = 'moeezrno'  # the part after https://formspree.io/f/ . Empty = form opens the visitor's email app
 
 # PLACEHOLDERS for the Website Estimate Assistant (24/7 AI Website Receptionist) case study.
@@ -119,6 +120,10 @@ def header(active):
 '''
 
 
+BEACON = (f'\n  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon=\'{{"token": "{CF_ANALYTICS_TOKEN}"}}\'></script>'
+          if CF_ANALYTICS_TOKEN else '')
+
+
 def footer():
     nav = ''.join(f'<li><a href="{h}">{n}</a></li>' for n, h in [('Home', '/')] + NAV)
     soc = ''.join(f'<li><a href="{u}" {EXT}>{n}{NEWTAB}</a></li>' for n, u in SOCIAL if u.startswith('https://'))
@@ -156,7 +161,7 @@ def footer():
     </div></div>
   </footer>
 
-  <script src="/js/main.js?v={ASSET_V}"></script>
+  <script src="/js/main.js?v={ASSET_V}"></script>{BEACON}
 </body>
 </html>
 '''
