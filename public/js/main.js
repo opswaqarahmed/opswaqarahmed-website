@@ -168,17 +168,92 @@
   "use strict";
   var box = document.getElementById("calc");
   if (!box) return;
-  var visits = document.getElementById("c-visits"), mins = document.getElementById("c-min"), rate = document.getElementById("c-rate");
-  var hoursOut = document.getElementById("c-hours"), costOut = document.getElementById("c-cost");
+  var visits = document.getElementById("c-visits"),
+      mins = document.getElementById("c-min"),
+      rate = document.getElementById("c-rate");
+  var hoursOut = document.getElementById("c-hours"),
+      costOut = document.getElementById("c-cost"),
+      annualOut = document.getElementById("c-annual-hours");
+  var presetBtns = box.querySelectorAll(".calc-preset-btn");
+  var currentHours = 17, currentCost = 953, currentAnnual = 208;
   function num(el) { var n = parseFloat(el.value); return isFinite(n) && n > 0 ? n : 0; }
-  function update() {
-    var hours = num(visits) * 52 / 12 * num(mins) / 60;
-    hoursOut.textContent = hours >= 10 ? Math.round(hours) : Math.round(hours * 10) / 10;
-    var r = num(rate);
-    costOut.textContent = r ? "About " + Math.round(hours * r).toLocaleString("en") + " a month at that hourly cost." : "";
+  function animateRoll(el, start, end, duration, isCurrency, suffix) {
+    if (!el) return;
+    if (Math.abs(end - start) < 0.2) {
+      el.textContent = isCurrency ? "About $" + Math.round(end).toLocaleString("en") + (suffix || "") : (end >= 10 ? Math.round(end) : (Math.round(end * 10) / 10));
+      return;
+    }
+    var startTime = null;
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      var ease = 1 - Math.pow(1 - progress, 3);
+      var val = start + (end - start) * ease;
+      if (isCurrency) {
+        el.textContent = "About $" + Math.round(val).toLocaleString("en") + (suffix || "");
+      } else {
+        el.textContent = val >= 10 ? Math.round(val) : (Math.round(val * 10) / 10);
+      }
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      } else {
+        if (isCurrency) {
+          el.textContent = "About $" + Math.round(end).toLocaleString("en") + (suffix || "");
+        } else {
+          el.textContent = end >= 10 ? Math.round(end) : (Math.round(end * 10) / 10);
+        }
+      }
+    }
+    window.requestAnimationFrame(step);
   }
-  [visits, mins, rate].forEach(function (el) { el.addEventListener("input", update); });
-  box.querySelector("form").addEventListener("submit", function (e) { e.preventDefault(); });
+  function update(animate) {
+    var v = num(visits), m = num(mins), r = num(rate);
+    var targetHours = v * 52 / 12 * m / 60;
+    var targetCost = targetHours * r;
+    var targetAnnual = v * 52 * m / 60;
+    if (animate && window.requestAnimationFrame) {
+      animateRoll(hoursOut, currentHours, targetHours, 400, false);
+      if (costOut) {
+        if (r > 0) animateRoll(costOut, currentCost, targetCost, 400, true, " / mo in overhead");
+        else costOut.textContent = "Enter an hourly rate to see dollar cost";
+      }
+      if (annualOut) animateRoll(annualOut, currentAnnual, targetAnnual, 400, false);
+    } else {
+      if (hoursOut) hoursOut.textContent = targetHours >= 10 ? Math.round(targetHours) : Math.round(targetHours * 10) / 10;
+      if (costOut) {
+        costOut.textContent = r > 0 ? "About $" + Math.round(targetCost).toLocaleString("en") + " / mo in overhead" : "";
+      }
+      if (annualOut) {
+        annualOut.textContent = Math.round(targetAnnual);
+      }
+    }
+    currentHours = targetHours;
+    currentCost = targetCost;
+    currentAnnual = targetAnnual;
+  }
+  Array.prototype.forEach.call(presetBtns, function (btn) {
+    btn.addEventListener("click", function () {
+      Array.prototype.forEach.call(presetBtns, function (b) { b.classList.remove("is-active"); });
+      btn.classList.add("is-active");
+      visits.value = btn.getAttribute("data-visits");
+      mins.value = btn.getAttribute("data-mins");
+      rate.value = btn.getAttribute("data-rate");
+      update(true);
+    });
+  });
+  [visits, mins, rate].forEach(function (el) {
+    el.addEventListener("input", function () {
+      Array.prototype.forEach.call(presetBtns, function (b) {
+        var match = b.getAttribute("data-visits") === visits.value &&
+                    b.getAttribute("data-mins") === mins.value &&
+                    b.getAttribute("data-rate") === rate.value;
+        b.classList.toggle("is-active", match);
+      });
+      update(true);
+    });
+  });
+  var form = box.querySelector("form");
+  if (form) form.addEventListener("submit", function (e) { e.preventDefault(); });
   box.hidden = false;
-  update();
+  update(false);
 })();
