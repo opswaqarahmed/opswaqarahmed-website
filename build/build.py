@@ -15,7 +15,8 @@ OUT = pathlib.Path(os.environ.get('SITE_OUT') or HERE.parent / 'public')
 
 # ---------------------------------------------------------------- Brand rules (v3)
 # Personal brand = the name. Descriptor = the category he leads with: AI automation and agentic AI.
-# GoHighLevel, n8n and AI-assisted web builds are the delivery stack, named in copy, not in the name.
+# AI agents, GoHighLevel, n8n and Supabase RAG knowledge bases are the delivery stack, named in all public copy.
+# Scope rule: no website-development or browser-extension services anywhere on the site.
 BRAND_DESCRIPTOR = 'AI Automation & Agentic AI'
 ROLE = 'AI Automation &amp; Agentic AI Specialist'        # job title used in hero kicker, About, structured data
 ROLE_TXT = 'AI Automation & Agentic AI Specialist'
@@ -25,17 +26,19 @@ BRAND_HTML = BRAND.replace('&', '&amp;')
 TAGLINE = 'Make every lead move forward.'
 BASE = 'Khairpur District, Sindh, Pakistan'   # always written exactly like this (see brand guide, section 1)
 REACH = 'Working remotely with clients worldwide'
-LOCATION = f'Based in {BASE}. {REACH}.'   # no list of target countries anywhere on the site
-POSITIONING = ('AI agents and automation for renovation and home-service businesses: a 24/7 AI website receptionist, '
-               'GoHighLevel and n8n systems and conversion websites, built with the controls of bank operations.')
+LOCATION = f'Based in {BASE}. {REACH}.'
+MARKET = 'US and UK remodeling contractors and GoHighLevel agencies'   # primary target market, named in hero, footer, meta and schema
+TRADES_LINE = 'kitchens, bathrooms, extensions, loft conversions, basements, roofing and solar'
+POSITIONING = ('AI agents, GoHighLevel and n8n for US and UK remodeling contractors and GoHighLevel agencies: a 24/7 AI website receptionist, '
+               'Supabase RAG knowledge bases, GoHighLevel pipelines and n8n workflows, built with the controls of bank operations.')
 FLAGSHIP = '24/7 AI Website Receptionist'   # productized service name for the RAG agent + chat widget
 
 SITE = 'https://opswaqarahmed.pages.dev'
 EMAIL = 'meetwith.waqarahmed@gmail.com'  # shown on the site; keep the Formspree form pointed at the same inbox
 LINKEDIN = 'https://www.linkedin.com/in/opswaqarahmed/'
 LOOP_CASE = 'https://loop.org.pk/student-projects/supplier-quote-request-automation-ghl-n8n/'
-UPDATED = ('2026-11-14', '14 November 2026')
-ASSET_V = '30'                           # bump when css/js change, so browsers fetch the new files
+UPDATED = ('2026-11-15', '15 November 2026')
+ASSET_V = '31'                           # bump when css/js change, so browsers fetch the new files
 
 # Social links: only URLs the owner has supplied. Empty value = link left out.
 SOCIAL = [
@@ -56,24 +59,37 @@ SOCIAL = [
 CERT_ISSUER = 'LOOP Institute of Applied AI'
 CERT_TITLE = 'GoHighLevel certification training'  # PLACEHOLDER: exact title printed on the certificate
 CERT_DATE = ''             # PLACEHOLDER: completion date on the certificate, e.g. "October 2026"
-HEADSHOT = ''              # PLACEHOLDER: e.g. '/assets/img/waqar-ahmed.jpg' (real photo, about 800x1000). Empty = WA mark is shown
+HEADSHOT = '/assets/img/waqar-ahmed.jpg'   # real portrait, 800x800, in public/assets/img. Empty = WA mark is shown
 BOOKING_URL = ''           # PLACEHOLDER: calendar link (GHL calendar, Cal.com...). Empty = audit form only
 TESTIMONIALS = []          # PLACEHOLDER: real, approved quotes only: [('Quote text', 'Name', 'Role, Company')]
-PRICE_FROM = {}            # PLACEHOLDER: e.g. {'Single workflow fix': 'From $X'}. Empty = "Quoted in writing after the audit"
+PRICE_FROM = {}            # PLACEHOLDER: e.g. {'Tier 1: AI knowledge base foundation': 'Typical range $X to $Y'}. Empty = "Quoted in writing after the audit"
 CASE_SHOTS = {}            # PLACEHOLDER: sanitized screenshot per case study: {'supplier-quote-requests': ('/assets/img/x.png', 'Alt text')}
+FORMSPREE_ID = 'moeezrno'  # the part after https://formspree.io/f/ . Used while INTAKE_WEBHOOK_URL is empty
 CF_ANALYTICS_TOKEN = '36599263344846338d6b1fcb73837786'  # Cloudflare Web Analytics (cookie-free). Empty = no beacon
-FORMSPREE_ID = 'moeezrno'  # the part after https://formspree.io/f/ . Empty = form opens the visitor's email app
+
+# GoHighLevel + n8n intake. Paste the n8n Webhook node's PRODUCTION URL here, e.g.
+# 'https://YOUR-N8N-HOST/webhook/portfolio-intake'. While empty, the form keeps sending through Formspree.
+# When you set it, also add the n8n host to connect-src in public/_headers (see build/README.md).
+INTAKE_WEBHOOK_URL = ''    # PLACEHOLDER: [INSERT_N8N_INTAKE_WEBHOOK_URL]
+
+# Live floating 24/7 AI Website Receptionist widget. Script URL plus any data attributes the widget needs.
+# While empty, only the empty hook <div id="ai-receptionist-widget"> is placed on /contact/ and no script loads.
+CHAT_WIDGET_SRC = ''       # PLACEHOLDER: e.g. 'https://widgets.leadconnectorhq.com/loader.js'
+CHAT_WIDGET_ATTRS = ''     # PLACEHOLDER: e.g. 'data-resources-url="..." data-widget-id="..."'
+
+# Walkthrough video for the AI Knowledge Base & RAG Loader case study (about 3.5 minutes).
+# Use an EMBED url: https://www.youtube-nocookie.com/embed/VIDEO_ID  or  https://www.loom.com/embed/VIDEO_ID
+KB_VIDEO_EMBED = ''        # PLACEHOLDER: [INSERT_YOUTUBE_OR_LOOM_EMBED_URL]
 
 # PLACEHOLDERS for the Website Estimate Assistant (24/7 AI Website Receptionist) case study.
 # Only facts you confirm go here. Each empty value is simply left off the page.
 RECEPTIONIST = {
-    'stack': '',        # e.g. 'n8n AI Agent + OpenAI + Supabase vector store + custom chat widget'
-    'sources': '',      # what the knowledge base was built from, e.g. 'Service pages, FAQs and process notes (test content)'
+    'stack': 'RAG knowledge base (n8n + Gemini Embeddings + Supabase pgvector), website chat widget, GoHighLevel and n8n lead operations',
+    'sources': 'Eight structured policy sections of demo company facts, loaded by the <a href="/projects/ai-knowledge-base-rag-loader/">AI Knowledge Base &amp; RAG Loader</a>',
     'handoff': '',      # what happens with a ready lead, e.g. 'Details saved as a GoHighLevel contact tagged ai-qualified'
     'guardrails': '',   # e.g. 'Answers only from the knowledge base; says so and offers a call when it does not know'
     'demo_url': '',     # public demo page or Loom video of the assistant
-    'tested': [],
-    'program': '',      # e.g. 'LOOP Institute of Applied AI assignment' (if it was one)       # sample-run results you recorded: [('12', 'test questions asked'), ('11', 'answered from the knowledge base')]
+    'tested': [],       # sample-run results you recorded: [('12', 'test questions asked'), ('11', 'answered from the knowledge base')]
 }
 
 
@@ -82,10 +98,11 @@ def cert_line():
     return s + (f' ({CERT_DATE})' if CERT_DATE else '')
 
 
-FORM_ACTION = f'https://formspree.io/f/{FORMSPREE_ID}' if FORMSPREE_ID else f'mailto:{EMAIL}?subject=Automation%20audit%20request'
+FORM_ACTION = (INTAKE_WEBHOOK_URL or (f'https://formspree.io/f/{FORMSPREE_ID}' if FORMSPREE_ID
+                                      else f'mailto:{EMAIL}?subject=Automation%20audit%20request'))
 AUDIT = '/contact/#audit-form'
 CTA = 'Request an automation audit'
-CTA_NOTE = 'A 15-minute call about one workflow. No sales pitch. You keep the map of where AI and automation fit, either way.'
+CTA_NOTE = 'A 15-minute call about one workflow. No sales pitch. You keep the map of where AI agents, GoHighLevel and n8n fit, either way.'
 
 NEWTAB = '<span class="visually-hidden"> (opens in a new tab)</span>'
 EXT = 'rel="noopener noreferrer" target="_blank"'
@@ -124,7 +141,15 @@ BEACON = (f'\n  <script defer src="https://static.cloudflareinsights.com/beacon.
           if CF_ANALYTICS_TOKEN else '')
 
 
-def footer():
+def widget_hook():
+    """Hook for the live floating 24/7 AI Website Receptionist widget. No script loads until CHAT_WIDGET_SRC is set."""
+    script = f'\n  <script src="{CHAT_WIDGET_SRC}" {CHAT_WIDGET_ATTRS} defer></script>' if CHAT_WIDGET_SRC else ''
+    state = 'live' if CHAT_WIDGET_SRC else 'placeholder'
+    return (f'  <!-- 24/7 AI Website Receptionist widget hook. Set CHAT_WIDGET_SRC in build/build.py to load the live widget. -->\n'
+            f'  <div id="ai-receptionist-widget" data-widget="{FLAGSHIP}" data-state="{state}"></div>{script}')
+
+
+def footer(widget=False):
     nav = ''.join(f'<li><a href="{h}">{n}</a></li>' for n, h in [('Home', '/')] + NAV)
     soc = ''.join(f'<li><a href="{u}" {EXT}>{n}{NEWTAB}</a></li>' for n, u in SOCIAL if u.startswith('https://'))
     return f'''
@@ -136,7 +161,7 @@ def footer():
           <span class="brand-name">Waqar Ahmed<small>{LOCKUP_LINE}</small></span>
         </a>
         <p class="footer-tagline">{TAGLINE}</p>
-        <p>{ROLE}. AI receptionists, GoHighLevel and n8n systems and conversion websites for renovation and home-service businesses.</p>
+        <p>{ROLE}. 24/7 AI website receptionists, GoHighLevel pipelines and n8n workflows for {MARKET}.</p>
         <p class="meta"><span>{BASE}</span><span>{REACH}</span><a href="mailto:{EMAIL}">{EMAIL}</a></p>
       </div>
       <nav aria-labelledby="footer-explore">
@@ -161,13 +186,14 @@ def footer():
     </div></div>
   </footer>
 
+{widget_hook() if widget else ''}
   <script src="/js/main.js?v={ASSET_V}"></script>{BEACON}
 </body>
 </html>
 '''
 
 
-OG_ALT = 'Waqar Ahmed, AI Automation and Agentic AI Specialist. Make every lead move forward. AI receptionists, GoHighLevel and n8n systems for home-service businesses.'
+OG_ALT = 'Waqar Ahmed, AI Automation and Agentic AI Specialist. Make every lead move forward. 24/7 AI website receptionists, GoHighLevel, n8n and Supabase RAG for US and UK remodeling contractors and GoHighLevel agencies.'
 
 
 def head(title, desc, path, og_type='website', jsonld=None, noindex=False):
@@ -268,22 +294,20 @@ def write(path, html, raw=False):
 
 
 # ---------------------------------------------------------------- Shared content
+# (label, title, stack, description, bullets). Three productized packages + one agency partner track.
 SERVICES = [
-    (FLAGSHIP,
-     'An AI agent on your website that answers visitor questions day and night from your own approved content, then captures the enquiry so your team can pick it up with the details already written down.',
-     ['Answers grounded in your own knowledge base (RAG)', 'Chat widget that fits your site and brand', 'Hands over to a person when the answer is not in your content']),
-    ('GoHighLevel lead systems',
-     'Every enquiry is captured, qualified, routed to the right person and followed up, with clear rules for when follow-up stops, and one pipeline the owner can trust.',
-     ['Forms, funnels, pipelines, calendars and tags', 'Follow-up that stops when the customer replies or books', 'Owner dashboards with the lead source on every contact']),
-    ('n8n workflows and AI agents',
-     'The work GoHighLevel cannot do well alone: integrations, data handling, scoring and multi-step agent workflows, each with an error path and a human checkpoint.',
-     ['Lead scoring and supplier quote requests', 'AI steps with human approval where it matters', 'Error branches, retries and useful alerts']),
-    ('Websites built to convert',
-     'Fast, accessible websites designed and developed with AI-assisted tools, wired to your CRM forms and, if you want one, your AI receptionist.',
-     ['Built with Google Antigravity, Claude, Gemini and ChatGPT', 'Clear offer, proof and one call to action per page', 'Forms connected to GoHighLevel or n8n']),
-    ('Automation care',
-     'After launch, workflows and agents are documented, monitored, fixed when something breaks and improved as the business changes.',
-     ['Clear statuses and useful alerts', 'Knowledge base updates for the AI receptionist', 'Handover notes your team can follow']),
+    ('Tier 1', 'AI knowledge base foundation', 'n8n + Gemini Embeddings + Supabase pgvector',
+     'A one-click RAG library built from your approved business facts, organised into eight or more policy sections, so an AI assistant answers from verified company information instead of inventing prices or permit promises.',
+     ['One n8n run clears and reloads the library, with no duplicates', 'Policy sections such as services, service area, pricing rules and permits', 'Stored in your own Supabase project with Row Level Security']),
+    ('Tier 2 · Flagship', f'{FLAGSHIP} + GoHighLevel pipeline', 'RAG chat widget + n8n + GoHighLevel',
+     'A RAG chat widget on your website that answers after-hours enquiries from verified company facts, qualifies the lead, and syncs the contact, tags and opportunity stage directly into GoHighLevel.',
+     ['Answers grounded in your knowledge base, day and night', 'Lead qualified in the chat before your team picks it up', 'Contact, tags and opportunity stage created in GoHighLevel', 'Hands over to a person for prices and anything outside your content']),
+    ('Tier 3', 'Lead operations, supplier quote automation and monthly retainer', 'GoHighLevel + n8n',
+     'Multi-channel lead routing, automated supplier quote matching, weekly executive reporting and ongoing knowledge-base refreshes, run as a monthly retainer.',
+     ['Leads from forms, chat and calls routed into one GoHighLevel pipeline', 'Suppliers matched by trade and city, with a dated follow-up task', 'Weekly executive report built from the same CRM data', 'Knowledge base refreshed as your services and policies change']),
+    ('Agency partner track', 'White-label n8n + Supabase RAG backend', 'For US and UK GoHighLevel agencies',
+     'Technical n8n and Supabase RAG backend fulfilment for US and UK GoHighLevel marketing agencies that serve home-service contractors. Your agency keeps the client relationship and the GoHighLevel account. I build the backend behind your brand.',
+     ['n8n workflows and Supabase (pgvector) knowledge bases for each client sub-account', 'Built to your naming, documentation and handover standards', 'Access through team invites, with no direct client contact unless you ask']),
 ]
 
 HANDOFFS = [
@@ -320,22 +344,21 @@ PROCESS = [
 ]
 
 TIERS = [
-    ('Single workflow fix', '3 to 5 business days',
-     'One urgent GoHighLevel or n8n bottleneck fixed, with duplicate protection and retry on failure.'),
-    (FLAGSHIP, 'Agreed in the scope',
-     'A knowledge base built from your approved content, an AI agent that answers from it, a chat widget on your website and a handover path to your team.'),
-    ('Lead-to-site-visit system', '7 to 10 business days',
-     'GoHighLevel intake form, qualification tags, a four-email follow-up sequence that stops on reply, and site-visit calendar booking.'),
-    ('Full AI + GHL + n8n operations system', '10 to 14 business days',
-     'n8n lead scoring, supplier quote requests by trade and city, a lead-source dashboard and a Loom handover library. The AI receptionist can be added.'),
-    ('Conversion website', 'Agreed in the scope',
-     'A fast, accessible website with clear service pages, proof and forms connected to your CRM.'),
+    ('Tier 1: AI knowledge base foundation', 'Agreed in the scope',
+     'Your approved business facts structured into policy sections, embedded with Gemini Embeddings and stored in Supabase pgvector, with a one-click n8n refresh workflow.'),
+    (f'Tier 2: {FLAGSHIP} + GoHighLevel pipeline', 'Agreed in the scope',
+     'Everything in Tier 1, plus the RAG chat widget on your website, lead qualification, and contacts, tags and opportunity stages synced into GoHighLevel.'),
+    ('Tier 3: Lead operations and monthly retainer', 'Monthly, agreed in the scope',
+     'Multi-channel lead routing, supplier quote automation, weekly executive reporting and ongoing knowledge-base refreshes in GoHighLevel and n8n.'),
+    ('White-label partner track', 'Per client, agreed with your agency',
+     'n8n and Supabase RAG backend fulfilment for US and UK GoHighLevel agencies, delivered under your brand.'),
 ]
 PRICE_DEFAULT = 'Quoted in writing after the audit'
 
-FIT_FOR = ['Renovation, remodeling and home-service businesses with steady enquiries that stall between first contact, site visit and quote.',
+FIT_FOR = [f'US and UK remodeling and home-improvement contractors ({TRADES_LINE}) with steady enquiries that stall between first contact, site visit and quote.',
            'Owners who want AI to answer and qualify enquiries, with a person still in charge of prices and promises.',
            'Teams already on GoHighLevel, or ready to run their own GoHighLevel subscription.',
+           'GoHighLevel marketing agencies that serve home-service contractors and need an n8n and Supabase RAG backend builder.',
            'Businesses that want documented systems their own team can run.']
 FIT_NOT = ['Anyone looking for an ad agency or bought leads. I build the systems, not the traffic.',
            'An AI that quotes prices or makes commitments with no human check.',
@@ -346,35 +369,37 @@ FAQ = [
     ('What is the 24/7 AI Website Receptionist?', 'An AI agent with a chat widget on your website. It answers visitor questions from a knowledge base built from your own approved content (this is called retrieval-augmented generation, or RAG), and captures the enquiry so a person on your team can follow up.'),
     ('Will the AI make things up or quote prices?', 'It is set up to answer from your approved content, and to hand over to a person when the answer is not there. Prices, commitments and anything that needs judgement stay with your team. We agree these rules in the scope and test them with real questions before launch.'),
     ('What does "agentic AI" mean for my business?', 'An AI agent does more than chat: it can take steps, such as looking something up, filling in a CRM record or starting a follow-up. I build those steps inside workflows with logs, limits and a human checkpoint, so you can see and approve what the agent does.'),
-    ('Do I need a GoHighLevel account?', 'For CRM work, yes. I build inside your GoHighLevel account, so you own the workflows, contacts and data. The AI receptionist and website can also connect to the tools you already use.'),
+    ('Do I need a GoHighLevel account?', 'For CRM work, yes. I build inside your GoHighLevel account, so you own the workflows, contacts and data. The AI receptionist is added to the website you already have.'),
     ('Will you need my password?', 'No. I ask for a team-member invite with the access the work needs, never your password.'),
     ('When do you use n8n instead of GoHighLevel alone?', "GoHighLevel runs the CRM process: forms, pipelines, calendars, follow-up and tasks. I add n8n when the work needs integration, data handling, AI agent steps or exception paths that GoHighLevel can't do well alone."),
     ('What does it cost?', 'The build fee is quoted in writing after the audit, before any work starts. Running costs depend on your own plans, such as GoHighLevel, n8n hosting, AI model usage and any email or SMS usage. These are listed in the scope too, so there are no surprises.'),
     ('How do you test before going live?', 'I build with test records and test questions first, and check normal cases, duplicates, missing data, failed actions and questions the AI should decline, against tests we agree in the scope. Then I hand over with notes on ownership, monitoring and recovery.'),
-    ('Where are you based, and who do you work with?', f"I'm based in {BASE}, and I work remotely with renovation, remodeling and home-service businesses anywhere in the world. Live calls are booked inside your business day, and everything is built inside your own accounts."),
-    ('Are the projects on this site client work?', 'No. They are sandbox builds for Elite Home Renovations, a practice account in my LOOP Institute of Applied AI course, using test or demo data. Results are labelled as tested in a sample run, as build specs, or as estimates.'),
+    ('Where are you based, and who do you work with?', f"I'm based in {BASE}, and I work remotely with remodeling and home-improvement contractors in the US and UK, and with GoHighLevel agencies that serve them. Live calls are booked inside your business day, and everything is built inside your own accounts."),
+    ('Do you work white-label for GoHighLevel agencies?', 'Yes. For US and UK GoHighLevel agencies that serve home-service contractors, I build the n8n workflows and the Supabase (pgvector) RAG knowledge base behind the agency\'s own brand. The agency keeps the client relationship and the GoHighLevel account, and I work through team invites.'),
+    ('Are the projects on this site client work?', 'No. They are reference / sandbox builds for Elite Home Renovations, a practice company, using test or demo data. They are not paid client work. Results are labelled as tested in a sample run, as build specs, or as estimates.'),
 ]
 
 PERSON = {
     "@type": "Person", "@id": SITE + "/#person", "name": "Waqar Ahmed", "alternateName": BRAND, "url": SITE + "/",
     "image": SITE + (HEADSHOT or "/assets/img/apple-touch-icon.png"),
     "jobTitle": ROLE_TXT,
-    "description": "AI automation and agentic AI specialist for renovation, remodeling and home-service businesses: AI website receptionists (RAG), GoHighLevel and n8n systems, and AI-assisted websites. Former bank operations professional. Based in Khairpur District, Sindh, Pakistan; works remotely with clients worldwide.",
+    "description": "AI Automation & Agentic AI Specialist for US and UK remodeling and home-improvement contractors and GoHighLevel agencies: 24/7 AI website receptionists (RAG), GoHighLevel pipelines, n8n workflows and Supabase pgvector knowledge bases. MBA with about eight years in branch banking operations at MCB Bank. Based in Khairpur District, Sindh, Pakistan; works remotely.",
     "address": {"@type": "PostalAddress", "addressLocality": "Khairpur District", "addressRegion": "Sindh", "addressCountry": "PK"},
-    "knowsAbout": ["AI automation", "Agentic AI", "AI agents", "Retrieval-augmented generation (RAG)", "GoHighLevel", "n8n", "Workflow automation", "CRM automation", "Conversation AI", "Voice AI", "Web design and development"],
+    "knowsAbout": ["AI automation", "Agentic AI", "AI agents", "AI website receptionist", "Retrieval-augmented generation (RAG)", "GoHighLevel", "n8n", "Supabase pgvector", "Google Gemini embeddings", "Workflow automation", "CRM automation", "Lead qualification", "Supplier quote automation"],
     "hasCredential": {"@type": "EducationalOccupationalCredential", "name": "LOOP GoHighLevel certification training (completed)",
                       "recognizedBy": {"@type": "Organization", "name": "LOOP Institute of Applied AI", "url": "https://loop.org.pk/"}},
     "sameAs": [u for _, u in SOCIAL if u],
     "subjectOf": {"@type": "CreativeWork", "name": "Supplier quote request automation (GHL + n8n)", "url": LOOP_CASE},
 }
-AREAS = "Worldwide"   # remote service, not limited to listed countries
+AREAS = [{"@type": "Country", "name": "United States"}, {"@type": "Country", "name": "United Kingdom"}]   # primary market; delivery is remote
 PRO_SERVICE = {
     "@type": "ProfessionalService", "@id": SITE + "/#service", "name": BRAND, "url": SITE + "/",
     "image": SITE + "/assets/img/og-image.png",
-    "description": "Remote AI automation and agentic AI for renovation, remodeling and home-service businesses: 24/7 AI website receptionists, GoHighLevel and n8n systems, conversion websites and automation care.",
+    "description": "Remote AI automation and agentic AI for US and UK remodeling contractors and GoHighLevel agencies: Supabase RAG knowledge bases, 24/7 AI website receptionists, GoHighLevel pipelines, n8n lead operations and white-label n8n + Supabase RAG backend fulfilment.",
+    "audience": {"@type": "BusinessAudience", "name": "US and UK residential remodeling and home-improvement contractors; GoHighLevel marketing agencies"},
     "slogan": TAGLINE, "founder": {"@id": SITE + "/#person"}, "employee": {"@id": SITE + "/#person"},
-    "areaServed": AREAS, "serviceType": [s[0] for s in SERVICES],
-    "knowsAbout": ["AI automation", "Agentic AI", "AI agents", "RAG", "GoHighLevel", "n8n", "Workflow automation", "Web development"],
+    "areaServed": AREAS, "serviceType": [s[1] for s in SERVICES],
+    "knowsAbout": ["AI automation", "Agentic AI", "AI agents", "RAG", "GoHighLevel", "n8n", "Supabase pgvector", "Workflow automation"],
     "sameAs": [u for _, u in SOCIAL if u],
 }
 
@@ -412,13 +437,14 @@ def cta_band(h2='Where do your leads get stuck?',
 
 def services_rows():
     return '<ul class="rows">' + ''.join(
-        f'<li><h3>{t}</h3><p>{d}</p>{ticks(b)}</li>' for t, d, b in SERVICES) + '</ul>'
+        f'<li><div><p class="flag">{lab}</p><h3>{t}</h3><p class="tools">{st}</p></div><p>{d}</p>{ticks(b)}</li>'
+        for lab, t, st, d, b in SERVICES) + '</ul>'
 
 
 def handoff_table():
     rows = ''.join(f'<tr><th scope="row">{a}</th><td data-label="Where it stalls today">{b}</td>'
                    f'<td data-label="What the system does">{c}</td></tr>' for a, b, c in HANDOFFS)
-    return ('<table class="ruled stack"><caption class="visually-hidden">Four handoffs where leads stall, and what the system does at each</caption>'
+    return ('<table class="ruled stack"><caption class="visually-hidden">Five handoffs where leads stall, and what the system does at each</caption>'
             '<thead><tr><th scope="col">Handoff</th><th scope="col">Where it stalls today</th><th scope="col">What the system does</th></tr></thead>'
             f'<tbody>{rows}</tbody></table>')
 
@@ -483,24 +509,28 @@ SUPPLIER_NOTE = 'One sample run in a sandbox account. Accepted by Gmail does not
 
 # ---------------------------------------------------------------- Case studies (data)
 CASES = [
-    {'slug': 'website-estimate-assistant', 'title': 'Website Estimate Assistant', 'crumb': FLAGSHIP, 'tools': 'RAG agent + website chat widget',
-     'card': f'A RAG agent and chat widget for the Elite Home Renovations website that answers visitor questions from the business\'s own content, day or night. Offered to clients as the {FLAGSHIP}.',
-     'chip': ('sandbox', 'Sandbox build'), 'flag': FLAGSHIP, 'about': ['AI agents', 'Retrieval-augmented generation', 'Website chat']},
+    {'slug': 'website-estimate-assistant', 'title': 'Website Estimate Assistant', 'crumb': FLAGSHIP, 'tools': 'RAG chat widget + n8n + GoHighLevel',
+     'card': f'A RAG agent and chat widget for the Elite Home Renovations website that answers visitor questions from the business\'s own verified facts, day or night. Offered to clients as the {FLAGSHIP}.',
+     'chip': ('sandbox', 'Reference / sandbox build'), 'flag': FLAGSHIP, 'about': ['AI agents', 'Retrieval-augmented generation', 'Website chat', 'GoHighLevel', 'n8n']},
+    {'slug': 'ai-knowledge-base-rag-loader', 'title': 'AI Knowledge Base &amp; RAG Loader', 'plain': 'AI Knowledge Base and RAG Loader',
+     'crumb': 'AI knowledge base and RAG loader', 'tools': 'n8n + Supabase pgvector + Gemini Embeddings',
+     'card': 'A one-click n8n workflow that clears and reloads eight structured policy sections into Supabase pgvector with Gemini Embeddings, so the AI receptionist answers from verified company facts.',
+     'chip': ('sandbox', 'Reference / sandbox build'), 'about': ['Retrieval-augmented generation', 'n8n', 'Supabase pgvector', 'Google Gemini embeddings', 'GoHighLevel']},
     {'slug': 'supplier-quote-requests', 'title': 'From site visit to supplier quote', 'crumb': 'Supplier quote requests', 'tools': 'GoHighLevel + n8n + Gmail',
      'card': 'After a site visit, n8n matches suppliers by trade and city, sends each one a quote request, and logs a note and a dated follow-up task in GoHighLevel.',
      'chip': ('tested', 'Tested in one sample run')},
     {'slug': 'quote-intake-followup', 'title': 'Quote intake and lead scoring', 'crumb': 'Quote intake and lead scoring', 'tools': 'n8n + GoHighLevel',
      'card': 'An 8-node n8n workflow scores new GoHighLevel contacts every 10 minutes and routes hot, warm and nurture leads to the right next step.',
-     'chip': ('sandbox', 'Sandbox build')},
+     'chip': ('sandbox', 'Reference / sandbox build')},
     {'slug': 'lead-to-site-visit', 'title': 'Lead-to-site-visit system', 'crumb': 'Lead-to-site-visit system', 'tools': 'GoHighLevel',
      'card': 'A Free Estimate Request funnel, two pipelines, a 60-minute site-visit calendar and a four-email follow-up that stops when a visit is booked.',
-     'chip': ('sandbox', 'Sandbox build')},
+     'chip': ('sandbox', 'Reference / sandbox build')},
     {'slug': 'reporting-dashboards', 'title': 'Reporting and lead-source attribution', 'crumb': 'Reporting and attribution', 'tools': 'GoHighLevel',
      'card': 'Five UTM contact fields, source-based workflow branching and owner notifications, so every lead shows where it came from.',
-     'chip': ('sandbox', 'Sandbox build, demo data')},
+     'chip': ('sandbox', 'Reference / sandbox build, demo data')},
     {'slug': 'ai-customer-experiences', 'title': 'AI customer experiences', 'crumb': 'AI customer experiences', 'tools': 'GoHighLevel Conversation AI + Voice AI',
      'card': 'A 24/7 chat and voice qualifier, plus a post-job review system that routes happy and unhappy customers differently.',
-     'chip': ('sandbox', 'Sandbox build')},
+     'chip': ('sandbox', 'Reference / sandbox build')},
 ]
 C = {c['slug']: c for c in CASES}
 
@@ -512,16 +542,17 @@ def case_list(cases=CASES):
         f'<p>{c["card"]}</p>{chip(*c["chip"])}</li>' for c in cases) + '</ul>'
 
 
-SANDBOX_LINE = ('These are sandbox builds for Elite Home Renovations, a practice account in my LOOP Institute of Applied AI course, '
-                'using test or demo data. They show how I build. They are not paid client deployments.')
+SANDBOX_LINE = ('These are reference / sandbox builds for Elite Home Renovations, a practice company, '
+                'using test or demo data. They show how I build with AI agents, GoHighLevel and n8n. They are not paid client work.')
+N_CASES = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'][len(CASES)]
 
 # ---------------------------------------------------------------- Home
 # The agent log: brand signature. An illustration of how the pieces work together, labelled as such.
 LEDGER = [
     ('21:47', 'Website chat opened', 'Homeowner asks about a kitchen remodel.', 'Answered', ''),
-    ('21:47', 'Answer from the knowledge base', 'Process, service area and next step, from the company\'s own content.', 'Grounded', ''),
+    ('21:47', 'Answer from the knowledge base', 'Process, service area and next step, from verified company facts.', 'Grounded', ''),
     ('21:50', 'Enquiry details captured', 'Project type, timeline and city.', 'Captured', ''),
-    ('21:50', 'Contact created in GoHighLevel', 'Source tagged. Duplicate check passed.', 'Posted', ''),
+    ('21:50', 'Contact and opportunity in GoHighLevel', 'Source tagged. Stage: new lead. Duplicate check passed.', 'Posted', ''),
     ('21:51', 'Lead scored in n8n', 'Marked hot. Call task due 9:00 next morning.', 'Assigned', ''),
     ('09:00', 'Owner calls back', 'A person takes over, with the details already on the record.', 'Open', ' posted--open'),
 ]
@@ -557,15 +588,15 @@ CALC_HTML = '''<div class="calc" id="calc" hidden>
         </div>'''
 
 STACK = [('AI agents and RAG', 'Knowledge bases, retrieval and agent steps'),
-         ('GoHighLevel', 'CRM, pipelines, calendars, Conversation AI'),
+         ('GoHighLevel', 'Contacts, tags, pipelines, workflows'),
          ('n8n', 'Integrations, scoring, agent workflows'),
-         ('AI-assisted web builds', 'Google Antigravity, Claude, Gemini, ChatGPT')]
+         ('Supabase RAG knowledge bases', 'pgvector, Gemini Embeddings, Row Level Security')]
 STACK_HTML = ('<ul class="stack-strip" aria-label="What I build with">' +
               ''.join(f'<li><strong>{a}</strong><span>{b}</span></li>' for a, b in STACK) + '</ul>')
 
-home_title = 'AI Automation &amp; Agentic AI Specialist for Home Services | Waqar Ahmed'
-home_desc = ('AI receptionists, agentic AI workflows, GoHighLevel and n8n systems and conversion websites for renovation and '
-             'home-service businesses. Every enquiry answered, followed up and accounted for.')
+home_title = 'AI Automation &amp; Agentic AI Specialist for US &amp; UK Remodelers | Waqar Ahmed'
+home_desc = ('AI Automation &amp; Agentic AI Specialist: 24/7 AI website receptionists, GoHighLevel pipelines and n8n workflows '
+             'for US &amp; UK remodelers and GoHighLevel agencies.')
 home_ld = graph(
     {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": BRAND,
      "alternateName": "Waqar Ahmed", "inLanguage": "en", "publisher": {"@id": SITE + "/#person"}},
@@ -577,8 +608,8 @@ home = head(home_title, home_desc, '/', jsonld=home_ld) + header('/') + f'''
       <div class="container hero-grid">
         <div>
           <p class="kicker kicker--pill">{ROLE}</p>
-          <h1 id="home-title">AI agents and automation that make every lead <span class="glow">move forward.</span></h1>
-          <p class="hero-lead">I build 24/7 AI website receptionists, GoHighLevel and n8n systems and conversion websites for renovation and home-service businesses. Every enquiry is answered, qualified, followed up and accounted for, from the first question to the site visit and the quote.</p>
+          <h1 id="home-title">AI receptionists, GoHighLevel pipelines and n8n workflows that make every lead <span class="glow">move forward.</span></h1>
+          <p class="hero-lead">I'm an {ROLE}. I build 24/7 AI website receptionists, GoHighLevel pipelines and n8n workflows for US and UK remodeling contractors, and the n8n and Supabase RAG backend for GoHighLevel agencies that serve them. Every enquiry is answered, qualified, followed up and accounted for.</p>
           <div class="btn-row">
             <a class="btn" href="{AUDIT}">{CTA}</a>
             <a class="btn btn--quiet" href="/projects/website-estimate-assistant/">See the AI receptionist</a>
@@ -593,7 +624,7 @@ home = head(home_title, home_desc, '/', jsonld=home_ld) + header('/') + f'''
             <li><strong>About 8 years in bank operations</strong>Branch operations at MCB Bank, before automation.</li>
             <li><strong>In AI automation since May 2022</strong>{cert_line().replace(CERT_ISSUER + ", ", "LOOP ")}.</li>
             <li><strong>You own everything</strong>Built in your accounts through a team invite, never a password.</li>
-            <li><strong>Remote, worldwide</strong>Based in {BASE}.</li>
+            <li><strong>US and UK contractors and agencies</strong>Remote, from {BASE}.</li>
           </ul>
         </div>
       </div>
@@ -619,11 +650,11 @@ home = head(home_title, home_desc, '/', jsonld=home_ld) + header('/') + f'''
       <div class="container">
         <div class="section-head">
           <p class="kicker">What I build</p>
-          <h2 id="what-title">Five systems. One operating story.</h2>
-          <p>We start with the handoff that costs you the most, and build the smallest system that fixes it. AI answers and qualifies. GoHighLevel runs the CRM. n8n connects the rest. Your website brings it together.</p>
+          <h2 id="what-title">Three packages and an agency partner track.</h2>
+          <p>We start with the handoff that costs you the most, and build the smallest system that fixes it. The knowledge base keeps the AI agent to verified facts. The AI receptionist answers and qualifies. GoHighLevel runs the pipeline. n8n connects the rest.</p>
         </div>
         {services_rows()}
-        <div class="btn-row"><a class="btn btn--quiet" href="/services/">Services, engagements and FAQ</a></div>
+        <div class="btn-row"><a class="btn btn--quiet" href="/services/">Packages, partner track and FAQ</a></div>
       </div>
     </section>
 
@@ -632,7 +663,7 @@ home = head(home_title, home_desc, '/', jsonld=home_ld) + header('/') + f'''
         <div>
           <p class="kicker">Flagship service</p>
           <h2 id="flag-title">The {FLAGSHIP}.</h2>
-          <p style="margin-top:18px">Homeowners research at night and on weekends. An AI receptionist on your website answers their questions from your own approved content, then captures the enquiry so your team can call back with the details already written down.</p>
+          <p style="margin-top:18px">Homeowners research at night and on weekends. An AI receptionist on your website answers their questions from your own verified company facts, qualifies the lead, then syncs the contact, tags and opportunity stage into GoHighLevel through n8n, so your team can call back with the details already on the record.</p>
           {ticks(['Answers grounded in your own knowledge base, not the open internet', 'Prices, promises and judgement calls stay with your team', 'Every conversation leaves a record your team can read'])}
           <div class="btn-row"><a class="btn" href="/projects/website-estimate-assistant/">See how it was built</a></div>
         </div>
@@ -666,7 +697,7 @@ home = head(home_title, home_desc, '/', jsonld=home_ld) + header('/') + f'''
       <div class="container">
         <div class="section-head">
           <p class="kicker">Work</p>
-          <h2 id="work-title">Six builds for one renovation business.</h2>
+          <h2 id="work-title">{N_CASES} reference builds for one renovation business.</h2>
           <p>{SANDBOX_LINE}</p>
         </div>
         {case_list()}
@@ -709,23 +740,23 @@ tier_rows = ''.join(
 SVC_LD = graph(
     crumbs(('Home', '/'), ('Services', None)),
     {"@type": "Service", "@id": SITE + "/services/#service",
-     "name": "AI automation and agentic AI for home-service businesses",
+     "name": "AI agents, GoHighLevel and n8n automation for remodeling contractors and GoHighLevel agencies",
      "serviceType": "AI automation", "provider": {"@id": SITE + "/#person"},
      "areaServed": AREAS, "url": SITE + "/services/",
-     "description": "24/7 AI website receptionists (RAG), GoHighLevel lead systems, n8n workflows and AI agents, conversion websites and automation care.",
-     "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Engagements", "itemListElement": [
+     "description": "Three productized packages and an agency partner track: AI knowledge base foundation (n8n, Gemini Embeddings, Supabase pgvector), 24/7 AI Website Receptionist with GoHighLevel pipeline, lead operations and supplier quote automation in GoHighLevel and n8n, and white-label n8n + Supabase RAG backend fulfilment for GoHighLevel agencies.",
+     "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Packages and partner track", "itemListElement": [
          {"@type": "Offer", "name": n, "description": f"{w} Turnaround: {d}.",
           "itemOffered": {"@type": "Service", "name": n}} for n, d, w in TIERS]}},
     {"@type": "FAQPage", "@id": SITE + "/services/#faq", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]})
-svc = head('AI Automation Services: AI Receptionist, GHL, n8n, Websites | Waqar Ahmed',
-           'AI automation services for renovation and home-service businesses: 24/7 AI website receptionist, GoHighLevel and n8n systems, AI agents and conversion websites.',
+svc = head('AI Agents, GoHighLevel &amp; n8n Packages for Remodelers | Waqar Ahmed',
+           'Three packages and an agency track: Supabase RAG knowledge base, 24/7 AI Website Receptionist with GoHighLevel pipeline, and n8n lead operations.',
            '/services/', jsonld=SVC_LD) + header('/services/') + f'''
   <main id="main">
-{page_hero('AI where it helps. Automation where it pays. A person where it matters.', "No one-size-fits-all AI pitch. We map your process, agree an outcome in writing, then build and test the smallest system that fixes it: an AI receptionist, a GoHighLevel and n8n workflow, a website, or all of them working together. Delivered remotely, inside accounts you own.", [('Home', '/'), ('Services', None)], kicker='Services')}
+{page_hero('AI where it helps. Automation where it pays. A person where it matters.', "Three productized packages for US and UK remodeling contractors, and a white-label track for GoHighLevel agencies. Each one is built from AI agents, GoHighLevel and n8n, scoped in writing, tested, and delivered remotely inside accounts you own.", [('Home', '/'), ('Services', None)], kicker='Services')}
     <section class="section" aria-labelledby="svc-title">
       <div class="container">
-        <div class="section-head"><h2 id="svc-title">What I build</h2></div>
+        <div class="section-head"><h2 id="svc-title">Three packages and an agency partner track</h2><p>Each package builds on the one before it. Start with the knowledge base, add the AI receptionist and the GoHighLevel pipeline, then run lead operations on a monthly retainer.</p></div>
         {services_rows()}
       </div>
     </section>
@@ -738,8 +769,8 @@ svc = head('AI Automation Services: AI Receptionist, GHL, n8n, Websites | Waqar 
         </div>
         <div class="table-wrap">
           <table class="ruled stack">
-            <caption class="visually-hidden">Engagement options, turnaround times and pricing</caption>
-            <thead><tr><th scope="col">Engagement</th><th scope="col">What's included</th><th scope="col">Turnaround</th><th scope="col">Price</th></tr></thead>
+            <caption class="visually-hidden">Packages, turnaround times and pricing</caption>
+            <thead><tr><th scope="col">Package</th><th scope="col">What's included</th><th scope="col">Turnaround</th><th scope="col">Price</th></tr></thead>
             <tbody>{tier_rows}</tbody>
           </table>
         </div>
@@ -779,15 +810,16 @@ svc = head('AI Automation Services: AI Receptionist, GHL, n8n, Websites | Waqar 
 write('services/index.html', svc)
 
 # ---------------------------------------------------------------- Work (projects index)
-proj = head('AI Automation Case Studies for a Renovation Business | Waqar Ahmed',
-            'Six AI automation case studies for a renovation business: AI website receptionist (RAG), supplier quotes, lead scoring, site-visit booking, attribution and AI customer service.',
+KB_PILL = 'N8N · SUPABASE PGVECTOR · GEMINI EMBEDDINGS · GOHIGHLEVEL READY'
+proj = head('AI Agent, GoHighLevel &amp; n8n Reference Builds for a Remodeler | Waqar Ahmed',
+            'Reference builds for a renovation business: AI knowledge base and RAG loader, 24/7 AI website receptionist, supplier quote automation and GoHighLevel pipelines.',
             '/projects/', jsonld=graph(
                 crumbs(('Home', '/'), ('Work', None)),
-                {"@type": "ItemList", "name": "Elite Home Renovations sandbox case studies", "itemListElement": [
-                    {"@type": "ListItem", "position": i, "url": SITE + f"/projects/{c['slug']}/", "name": c['title']}
+                {"@type": "ItemList", "name": "Elite Home Renovations reference builds", "itemListElement": [
+                    {"@type": "ListItem", "position": i, "url": SITE + f"/projects/{c['slug']}/", "name": c.get('plain', c['title'])}
                     for i, c in enumerate(CASES, 1)]})) + header('/projects/') + f'''
   <main id="main">
-{page_hero('Six builds for one renovation business.', 'One operating story: answer the demand, capture it, coordinate the work, and show the team what needs attention.', [('Home', '/'), ('Work', None)], kicker='Work')}
+{page_hero(f'{N_CASES} reference builds for one renovation business.', 'One operating story in AI agents, GoHighLevel and n8n: load verified facts, answer the demand, capture it, coordinate the work, and show the team what needs attention.', [('Home', '/'), ('Work', None)], kicker='Work')}
     <section class="section" aria-labelledby="flag-title">
       <div class="container">
         <p class="note" role="note" style="margin-bottom:56px"><strong>About this work.</strong> {SANDBOX_LINE} Nothing here has been independently audited.</p>
@@ -809,6 +841,23 @@ proj = head('AI Automation Case Studies for a Renovation Business | Waqar Ahmed'
         </div>
       </div>
     </section>
+    <section class="section section--navy on-navy" aria-labelledby="kb-title">
+      <div class="container statement">
+        <div>
+          <p class="kicker">Reference build · Elite Home Renovations</p>
+          <h2 id="kb-title">AI Knowledge Base &amp; RAG Loader</h2>
+          <p style="margin-top:18px">A one-click n8n loader that clears the old knowledge, then saves eight structured policy sections into Supabase pgvector with Gemini Embeddings. It is the verified source the 24/7 AI Website Receptionist answers from.</p>
+          <div class="btn-row">
+            <a class="btn" href="/projects/ai-knowledge-base-rag-loader/">Read the case study</a>
+            <a class="btn btn--quiet" href="/projects/website-estimate-assistant/">See the AI receptionist</a>
+          </div>
+        </div>
+        <div>
+          <ul class="chips" aria-label="Stack"><li>{chip('stack', KB_PILL)}</li></ul>
+          {ticks(['4-node linear loader and 3 helper nodes in n8n', 'Gemini Embeddings at vector(3072)', 'Chunk size 900, overlap 120', 'Row Level Security and a 1-click deduplicated refresh'])}
+        </div>
+      </div>
+    </section>
     <section class="section section--white" aria-labelledby="all-title">
       <div class="container">
         <div class="section-head"><h2 id="all-title">All case studies</h2></div>
@@ -821,14 +870,14 @@ write('projects/index.html', proj)
 
 # ---------------------------------------------------------------- About
 if HEADSHOT:
-    PORTRAIT = f'<div class="portrait"><img src="{HEADSHOT}" alt="Waqar Ahmed" width="800" height="1000" loading="lazy"></div>'
+    PORTRAIT = f'<div class="portrait"><img src="{HEADSHOT}" alt="Portrait of Waqar Ahmed" width="800" height="800"></div>'
 else:
     PORTRAIT = '<div class="portrait portrait--mark"><img src="/assets/img/wa-mark.svg" alt="WA monogram, the Waqar Ahmed logo" width="128" height="128" loading="lazy"></div>'
 about = head('About Waqar Ahmed | AI Automation &amp; Agentic AI Specialist',
-             'Waqar Ahmed builds AI receptionists, agentic AI workflows, GoHighLevel and n8n systems and websites for home-service businesses. 8 years in bank operations.',
+             'Waqar Ahmed builds AI agents, GoHighLevel pipelines and n8n workflows for US and UK remodeling contractors and agencies. MBA, about 8 years in bank operations.',
              '/about/', jsonld=graph(PERSON, PRO_SERVICE, crumbs(('Home', '/'), ('About', None)))) + header('/about/') + f'''
   <main id="main">
-{page_hero('Operations first. AI second.', 'I spent about eight years in branch banking operations before I moved into AI automation. I build AI agents and lead systems the way a branch runs its day: every item has an owner, and nothing is left unaccounted for.', [('Home', '/'), ('About', None)], kicker=ROLE)}
+{page_hero('Operations first. AI second.', 'I spent about eight years in branch banking operations before I moved into AI automation. I build AI agents, GoHighLevel pipelines and n8n workflows the way a branch runs its day: every item has an owner, and nothing is left unaccounted for.', [('Home', '/'), ('About', None)], kicker=ROLE)}
     <section class="section" aria-labelledby="about-title">
       <div class="container split">
         <div>
@@ -836,14 +885,15 @@ about = head('About Waqar Ahmed | AI Automation &amp; Agentic AI Specialist',
         </div>
         <div>
           <h2 id="about-title">Hi, I'm Waqar Ahmed.</h2>
-          <p style="margin-top:20px">I'm an AI automation and agentic AI specialist for renovation, remodeling and home-service businesses. I build four things: AI website receptionists that answer from a business's own content, GoHighLevel lead systems, n8n workflows and AI agents, and websites designed and developed with AI-assisted tools.</p>
-          <p>Before automation, I spent about eight years in branch banking operations at MCB Bank. I have worked in AI automation since May 2022, and I have built working workflows in GoHighLevel and n8n, plus an AI website receptionist using retrieval-augmented generation (RAG).</p>
-          <p>I aim to make AI understandable to the people who use it: clear statuses, safe retries, useful alerts, a human in charge of decisions, and honest reporting about what an agent or automation did.</p>
+          <p style="margin-top:20px">I'm an {ROLE}. I work with US and UK remodeling and home-improvement contractors ({TRADES_LINE}), and with the GoHighLevel agencies that serve them. I build four things: Supabase RAG knowledge bases, 24/7 AI website receptionists that answer from a business's own verified facts, GoHighLevel pipelines, and n8n workflows and AI agents.</p>
+          <p>Before automation, I spent about eight years in branch banking operations at MCB Bank, after a BBA (Honors) in 2013 and an MBA in 2015. In a branch, every entry is checked, owned and reconciled before the day closes. I build AI agents, GoHighLevel pipelines and n8n workflows to the same standard: duplicate checks, error branches, a person signing off prices and promises, and a record of what each agent did.</p>
+          <p>I have worked in AI automation since May 2022. I aim to make AI understandable to the people who use it: clear statuses, safe retries, useful alerts, and honest reporting about what an agent or automation did.</p>
           <dl class="facts" style="margin-top:32px">
             <div><dt>Role</dt><dd>{ROLE}</dd></div>
-            <div><dt>Focus</dt><dd>Renovation, remodeling and home-service businesses</dd></div>
-            <div><dt>Builds</dt><dd>AI website receptionists (RAG), GoHighLevel lead systems, n8n workflows and AI agents, AI-assisted websites</dd></div>
-            <div><dt>Tools</dt><dd>GoHighLevel, n8n, Google Antigravity, Claude, Gemini, ChatGPT</dd></div>
+            <div><dt>Focus</dt><dd>US and UK remodeling and home-improvement contractors, and GoHighLevel agencies</dd></div>
+            <div><dt>Builds</dt><dd>24/7 AI website receptionists (RAG), Supabase knowledge bases, GoHighLevel pipelines, n8n workflows and AI agents</dd></div>
+            <div><dt>Tools</dt><dd>GoHighLevel, n8n, Supabase (pgvector), Google Gemini Embeddings, OpenAI and Claude APIs</dd></div>
+            <div><dt>Education</dt><dd>MBA (2015), BBA Honors (2013)</dd></div>
             <div><dt>Background</dt><dd>About eight years in branch banking operations at MCB Bank</dd></div>
             <div><dt>Training</dt><dd>{cert_line()}</dd></div>
             <div><dt>Location</dt><dd>{BASE}. {REACH}</dd></div>
@@ -870,12 +920,12 @@ about = head('About Waqar Ahmed | AI Automation &amp; Agentic AI Specialist',
       <div class="container">
         <div class="section-head">
           <h2 id="avail-title">Remote, with calls inside your business day</h2>
-          <p>I'm based in {BASE} (PKT, UTC+5) and work remotely with clients worldwide.</p>
+          <p>I'm based in {BASE} (PKT, UTC+5) and work remotely, mainly with contractors and GoHighLevel agencies in the US and UK.</p>
         </div>
         <ul class="hours">
-          <li><strong>Live calls</strong><span>Audits, reviews and handovers are booked inside your working day, wherever you are.</span></li>
+          <li><strong>Live calls</strong><span>Audits, reviews and handovers are booked inside your working day, in US or UK business hours.</span></li>
           <li><strong>Written updates</strong><span>Progress notes and Loom walkthroughs cover the hours we don't overlap.</span></li>
-          <li><strong>Your accounts</strong><span>Everything is built inside your own GoHighLevel, n8n and AI accounts, so nothing depends on where I sit.</span></li>
+          <li><strong>Your accounts</strong><span>Everything is built inside your own GoHighLevel, n8n, Supabase and AI accounts, so nothing depends on where I sit.</span></li>
         </ul>
       </div>
     </section>
@@ -896,21 +946,31 @@ write('about/index.html', about)
 # ---------------------------------------------------------------- Case study pages
 def provenance(data='Test data shaped like real renovation jobs',
                results='Figures are labelled as build specs, sample-run results or estimates. None were measured with a live business or independently audited.',
-               program='LOOP Institute of Applied AI, GoHighLevel and n8n assignment',
                intro='I built and tested this workflow inside a dedicated GoHighLevel and n8n sandbox, so you can inspect the exact architecture without exposing any private client CRM data.'):
     rows = [
-        ('Build type', 'Sandbox reference build'),
-        ('Program', program),
-        ('Sandbox account', 'Elite Home Renovations, a dedicated GoHighLevel practice account'),
+        ('Build type', 'Reference / sandbox build'),
+        ('Practice company', 'Elite Home Renovations, a practice company in a dedicated GoHighLevel sandbox account'),
         ('Data', data),
-        ('Deployment', 'Not a paid client deployment'),
+        ('Deployment', 'Not paid client work'),
         ('Results', results),
     ]
     dl = ''.join(f'<div><dt>{k}</dt><dd>{v}</dd></div>' for k, v in rows)
-    return (f'<aside class="provenance" aria-labelledby="prov-title">{chip("sandbox", "Sandbox reference build")}'
+    return (f'<aside class="provenance" aria-labelledby="prov-title">{chip("sandbox", "Reference / sandbox build")}'
             f'<h2 id="prov-title">Build provenance</h2>'
             f'<p>{intro}</p>'
             f'<dl>{dl}</dl></aside>')
+
+
+def video(embed, title):
+    """Responsive 16:9 video container. Shows a labelled placeholder until an embed URL is set."""
+    if embed:
+        inner = (f'<iframe src="{embed}" title="{title}" loading="lazy" allowfullscreen '
+                 f'allow="fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe>')
+    else:
+        inner = '<p class="video-empty">Walkthrough video, about 3.5 minutes. Being added here.</p>'
+    return (f'<!-- Video embed: set KB_VIDEO_EMBED in build/build.py to [INSERT_YOUTUBE_OR_LOOM_EMBED_URL] -->\n'
+            f'<figure class="video-wrap"><div class="video" id="kb-walkthrough">{inner}</div>'
+            f'<figcaption>{title}</figcaption></figure>')
 
 
 def chain(steps, caption):
@@ -948,7 +1008,7 @@ def case_page(slug, title, desc, lead, body, prov=None, chips=None, extra_btn=''
     c = C[slug]
     crumb = (('Home', '/'), ('Work', '/projects/'), (c['crumb'], None))
     ld = graph(crumbs(*crumb),
-               {"@type": "Article", "@id": SITE + f"/projects/{slug}/#article", "headline": c['title'], "description": desc,
+               {"@type": "Article", "@id": SITE + f"/projects/{slug}/#article", "headline": c.get('plain', c['title']), "description": desc,
                 "author": {"@id": SITE + "/#person"}, "publisher": {"@id": SITE + "/#person"},
                 "datePublished": "2026-11-07", "dateModified": UPDATED[0], "inLanguage": "en",
                 "mainEntityOfPage": SITE + f"/projects/{slug}/", "about": c.get("about", ["GoHighLevel", "n8n", "Workflow automation"])})
@@ -982,10 +1042,10 @@ r_tested = (figures([('tested', 'Tested in a sample run', v, t) for v, t in R['t
 r_demo = f'<a class="btn btn--quiet ext" href="{R["demo_url"]}" {EXT}>Watch the demo{NEWTAB}</a>' if R['demo_url'] else ''
 case_page('website-estimate-assistant',
           f'{FLAGSHIP}: RAG Agent and Chat Widget | Waqar Ahmed',
-          f'Sandbox case study: a RAG agent and website chat widget for a renovation business that answers visitor questions from its own content, 24/7. Offered as the {FLAGSHIP}.',
+          f'Reference build: a RAG agent and chat widget for a renovation business that answers from verified company facts, 24/7, with GoHighLevel and n8n behind it.',
           'A retrieval-augmented (RAG) AI agent with a chat widget on the Elite Home Renovations website. It answers visitor questions from the business\'s own content, day or night.',
           r_tested + f'''
-<p class="note note--teal" role="note"><strong>Service name:</strong> I offer this build to clients as the <strong>{FLAGSHIP}</strong>. The case study below is the sandbox version, built for the Elite Home Renovations practice account.</p>
+<p class="note note--teal" role="note"><strong>Service name:</strong> I offer this build to clients as the <strong>{FLAGSHIP}</strong>. The case study below is the reference / sandbox version, built for Elite Home Renovations, a practice company.</p>
 <h2>The problem</h2>
 <p>Homeowners research renovation work in the evening and at weekends, when nobody is in the office. They want quick answers to simple questions: what the company does, where it works and how an estimate is arranged. If nobody answers, they can easily move on to the next contractor's website.</p>
 <h2>What I built</h2>
@@ -999,7 +1059,8 @@ case_page('website-estimate-assistant',
 <ul>
 <li>The business controls what the assistant knows: update the knowledge base, and the answers change.</li>
 <li>Answers come from the company's own content, which keeps them specific to its services and process.</li>
-<li>It is the foundation for an agent that can also capture enquiry details and hand them to the CRM.</li>
+<li>It is the foundation for an agent that can also capture enquiry details and sync them into GoHighLevel through n8n.</li>
+<li>The knowledge base itself is a separate reference build: the <a href="/projects/ai-knowledge-base-rag-loader/">AI Knowledge Base &amp; RAG Loader</a>.</li>
 </ul>
 {r_facts_html}
 <h2>How I would set it up for a live business</h2>
@@ -1009,16 +1070,53 @@ case_page('website-estimate-assistant',
 <li>Test it with real customer questions, including ones it should decline, before it goes on the website.</li>
 <li>Connect captured enquiries to GoHighLevel or n8n, so every conversation ends with an owner and a next step.</li>
 </ul>''',
-          prov=provenance('Test or demo content for the Elite Home Renovations practice account',
+          prov=provenance('Test or demo content for Elite Home Renovations, a practice company',
                           'No live-visitor results are reported. Build details are added here only once confirmed.',
-                          program=R.get('program') or 'Elite Home Renovations practice build',
-                          intro='I built this assistant for a practice account, so you can see how it works without exposing any private client data.'),
-          chips=[('sandbox', 'Sandbox build'), ('plain', 'RAG agent + chat widget')],
+                          intro='I built this assistant for a practice company, so you can see how it works without exposing any private client data.'),
+          chips=[('sandbox', 'Reference / sandbox build'), ('plain', 'RAG agent + chat widget + GoHighLevel + n8n')],
           extra_btn=r_demo)
 
+case_page('ai-knowledge-base-rag-loader',
+          'AI Knowledge Base &amp; RAG Loader: n8n + Supabase pgvector | Waqar Ahmed',
+          'Reference build: a one-click n8n loader that saves eight policy sections into Supabase pgvector with Gemini Embeddings for a GoHighLevel-ready AI receptionist.',
+          'A one-click n8n workflow that clears the old knowledge and reloads eight structured policy sections into Supabase pgvector, so an AI receptionist answers from verified company facts. Reference build for Elite Home Renovations.',
+          spec(('4', 'nodes in the linear loader'), ('3', 'helper nodes'), ('8', 'structured policy sections'), ('3072', 'embedding dimensions, <code>vector(3072)</code>'), ('900 / 120', 'chunk size and overlap')) + f'''
+<h2>The problem</h2>
+<p>An AI assistant with no verified source will guess. For a remodeling contractor, a guessed price or a guessed permit answer becomes a promise the team has to take back. The assistant needs one approved library of company facts, and the owner needs a simple way to refresh it when those facts change.</p>
+<h2>What I built</h2>
+<p>A four-node linear loader in n8n. One click runs it from start to finish:</p>
+{chain([
+    ('n8n', 'Run to load knowledge base', 'The manual trigger. One click starts the load.'),
+    ('n8n + Supabase', 'Clear old knowledge', 'Removes the existing rows first, so a refresh never leaves duplicates.'),
+    ('n8n', 'Elite Knowledge Text', 'Holds the company facts as eight structured policy sections.'),
+    ('n8n + Supabase', 'Save to Supabase', 'Writes each chunk and its embedding to the Supabase vector store (pgvector).'),
+], 'The four-node linear loader: Run to load knowledge base, Clear old knowledge, Elite Knowledge Text, Save to Supabase.')}
+<h3>Three helper nodes</h3>
+<div class="table-wrap"><table class="ruled">
+<caption class="visually-hidden">Helper nodes attached to the Save to Supabase node</caption>
+<thead><tr><th scope="col">Node</th><th scope="col">Setting</th><th scope="col">What it does</th></tr></thead>
+<tbody>
+<tr><td>Gemini Embeddings</td><td><code>vector(3072)</code></td><td>Turns each chunk into a 3,072-dimension embedding.</td></tr>
+<tr><td>Default Data Loader</td><td>Default</td><td>Passes the knowledge text to the vector store as documents.</td></tr>
+<tr><td>Recursive Character Text Splitter</td><td>Chunk size <code>900</code>, overlap <code>120</code></td><td>Splits the text into overlapping chunks, so an answer is not cut off at a chunk edge.</td></tr>
+</tbody></table></div>
+<h2>How it is kept safe and repeatable</h2>
+<ul>
+<li><strong>Eight structured policy sections.</strong> The company facts are written as separate sections, so each answer can be traced to the policy it came from.</li>
+<li><strong>Row Level Security.</strong> Row Level Security is enabled on the Supabase table that holds the knowledge.</li>
+<li><strong>1-click deduplicated refresh.</strong> Each run clears the old knowledge before saving, so the library can be reloaded at any time without duplicate rows.</li>
+<li><strong>GoHighLevel ready.</strong> This is the knowledge base behind the <a href="/projects/website-estimate-assistant/">{FLAGSHIP}</a>, which passes qualified leads to GoHighLevel through n8n.</li>
+</ul>
+<h2>Walkthrough</h2>
+{video(KB_VIDEO_EMBED, 'AI Knowledge Base and RAG Loader: 3.5-minute walkthrough')}''',
+          prov=provenance('Demo company facts written for Elite Home Renovations, a practice company',
+                          'Build specs only. No live-visitor results or retrieval-accuracy figures are reported.',
+                          intro='I built this loader in my own n8n and Supabase sandbox, so you can inspect the exact architecture without exposing any private client data.'),
+          chips=[('sandbox', 'Reference / sandbox build'), ('stack', KB_PILL)])
+
 case_page('supplier-quote-requests',
-          'Supplier quote requests with GHL and n8n | Waqar Ahmed',
-          'Sandbox case study: a GoHighLevel and n8n workflow that matches suppliers by trade and city after a site visit, sends quote requests and logs CRM follow-up.',
+          'Supplier Quote Automation with GoHighLevel and n8n | Waqar Ahmed',
+          'Reference build: a GoHighLevel and n8n workflow that matches suppliers by trade and city after a site visit, sends quote requests and logs CRM follow-up.',
           'An n8n workflow connected to GoHighLevel that matches active suppliers by trade and city, sends each one a quote request, and records the result and next follow-up in the CRM.',
           figures([('tested', 'Tested in a sample run', '4', 'matching suppliers found in one Full Home test run'),
                    ('tested', 'Tested in a sample run', '0', 'send failures in that run'),
@@ -1047,12 +1145,12 @@ case_page('supplier-quote-requests',
 <p style="margin-top:1rem">A real business would need its own baseline first: how long supplier requests take today, and how many site visits it handles.</p>''',
           prov=provenance('Test data: a Full Home test job and a supplier sheet',
                           'One sample run is reported as tested; the time saving is an estimate. No savings were measured with a live business or independently audited.'),
-          chips=[('sandbox', 'Sandbox build'), ('tested', 'Tested in one sample run'), ('estimate', 'Includes an estimate')],
+          chips=[('sandbox', 'Reference / sandbox build'), ('tested', 'Tested in one sample run'), ('estimate', 'Includes an estimate')],
           extra_btn=f'<a class="btn btn--quiet ext" href="{LOOP_CASE}" {EXT}>Published on LOOP{NEWTAB}</a>')
 
 case_page('quote-intake-followup',
           'Lead scoring and follow-up with n8n and GoHighLevel | Waqar Ahmed',
-          'Sandbox case study: an 8-node n8n workflow that scores GoHighLevel contacts every 10 minutes and routes hot, warm and nurture leads for a renovation business.',
+          'Reference build: an 8-node n8n workflow that scores GoHighLevel contacts every 10 minutes and routes hot, warm and nurture leads for a renovation business.',
           'An 8-node n8n workflow, Elite Lead Scoring, that checks GoHighLevel every 10 minutes, scores new contacts on four details and sends each lead to the right next step.',
           spec(('8', 'nodes in the n8n scoring workflow'), ('10 min', 'between scoring runs'), ('3', 'routing paths: hot, warm, nurture'), ('1 hr', 'due time for the hot-lead call task')) + f'''
 <h2>The problem</h2>
@@ -1084,7 +1182,7 @@ case_page('quote-intake-followup',
 
 case_page('reporting-dashboards',
           'UTM attribution and lead-source reporting in GoHighLevel | Waqar Ahmed',
-          'Sandbox case study: five UTM contact fields and source-based branching in GoHighLevel, so every renovation lead shows its source and the owner is notified.',
+          'Reference build: five UTM contact fields and source-based branching in GoHighLevel, so every renovation lead shows its source and the owner is notified.',
           'Five custom UTM contact fields and conditional workflow branching in GoHighLevel, so each lead is tagged by source and the owner sees where leads come from.',
           spec(('5', 'UTM fields stored on every contact'), ('2', 'channel tags: Facebook and Google'), ('1', 'owner alert per new lead, with its source')) + f'''
 <h2>The problem</h2>
@@ -1111,7 +1209,7 @@ case_page('reporting-dashboards',
 
 case_page('lead-to-site-visit',
           'Lead-to-site-visit system in GoHighLevel | Waqar Ahmed',
-          'Sandbox case study: a GoHighLevel estimate funnel, two pipelines, a 60-minute site-visit calendar and a reply-aware four-email nurture for a renovator.',
+          'Reference build: a GoHighLevel estimate funnel, two pipelines, a 60-minute site-visit calendar and a reply-aware four-email nurture for a renovator.',
           'A Free Estimate Request funnel, two pipelines, a 60-minute site-visit calendar and a reply-aware nurture sequence that stops as soon as a visit is booked.',
           spec(('2', 'pipelines: Sales and Jobs'), ('60 min', 'site-visit calendar slot'), ('4', 'nurture emails, Day 0 to Day 9'), ('1', 'Goal Event that stops the sequence')) + f'''
 <h2>The problem</h2>
@@ -1136,7 +1234,7 @@ case_page('lead-to-site-visit',
 
 case_page('ai-customer-experiences',
           'Conversation AI, Voice AI and review automation in GoHighLevel | Waqar Ahmed',
-          'Sandbox case study: a 24/7 GoHighLevel Conversation AI and Voice AI lead qualifier, plus a review system that routes 4–5 and 1–3 star ratings differently.',
+          'Reference build: a 24/7 GoHighLevel Conversation AI and Voice AI lead qualifier, plus a review system that routes 4–5 and 1–3 star ratings differently.',
           'A 24/7 Conversation AI and Voice AI qualifier in GoHighLevel, plus a post-job reputation system that sends happy customers to Google and unhappy ones to the owner.',
           spec(('24/7', 'chat and voice coverage'), ('4', 'qualifying details, one question at a time'), ('2', 'review routes: 4–5 and 1–3 stars')) + f'''
 <h2>The problem</h2>
@@ -1159,24 +1257,37 @@ case_page('ai-customer-experiences',
 <p>Asking one question at a time keeps the AI conversation simple for the customer, and the private alert gives the owner a chance to put things right.</p>''')
 
 # ---------------------------------------------------------------- Contact (audit form)
-if FORMSPREE_ID:
+HONEYPOT = ('<div hidden aria-hidden="true" style="display:none">'
+            '<input type="text" name="_gotcha" value="" tabindex="-1" autocomplete="off" style="display:none"></div>')
+if INTAKE_WEBHOOK_URL:
+    # n8n Webhook node -> GoHighLevel (create/update contact, add tags, create opportunity) -> notification email
+    FORM_NOTE = f'Your answers go to my n8n intake workflow, which creates the contact and opportunity in GoHighLevel and notifies me at {EMAIL}. Nothing is stored on this website.'
+    FORM_ENC = ''
+    FORM_MODE = 'webhook'
+    EMAIL_FIELD = 'email'
+    FORM_HIDDEN = ('<input type="hidden" name="source" value="portfolio-contact-form">\n'
+                   '            <input type="hidden" name="_subject" value="Automation audit request">\n            ' + HONEYPOT)
+elif FORMSPREE_ID:
     FORM_NOTE = f'Your answers are sent securely through Formspree, a form service, straight to {EMAIL}. Nothing is stored on this website.'
     FORM_ENC = ''
+    FORM_MODE = 'formspree'
     EMAIL_FIELD = 'email'  # Formspree uses the "email" field as the reply-to address
-    FORM_HIDDEN = ('<input type="hidden" name="_subject" value="Automation audit request">\n'
-                   '            <div hidden aria-hidden="true" style="display:none">'
-                   '<input type="text" name="_gotcha" value="" tabindex="-1" autocomplete="off" style="display:none"></div>')
+    FORM_HIDDEN = ('<input type="hidden" name="_subject" value="Automation audit request">\n            ' + HONEYPOT)
 else:
     FORM_NOTE = f'Sending opens your email app with your answers filled in, addressed to {EMAIL}. Nothing is stored on this website.'
     FORM_ENC = ' enctype="text/plain"'
+    FORM_MODE = 'mailto'
     EMAIL_FIELD = 'Work email'
     FORM_HIDDEN = ''
-TRADES = ['Kitchen/Bath', 'Basement', 'Roofing/Flooring', 'HVAC/Plumbing', 'General remodeling', 'Other home service', 'Other']
-HELP = [FLAGSHIP, 'GoHighLevel lead system', 'n8n workflow or AI agent', 'Website', 'Not sure yet']
+TRADES = ['Kitchen/Bath remodeling', 'Extension/Loft conversion', 'Basement', 'Roofing', 'Solar', 'General remodeling', 'GoHighLevel agency', 'Other']
+HELP = ['AI knowledge base (Tier 1)', f'{FLAGSHIP} + GoHighLevel pipeline (Tier 2)', 'Lead operations and retainer (Tier 3)', 'White-label agency partnership', 'Not sure yet']
+WIDGET_COPY = ('My own AI receptionist is live on this page. Open the chat in the corner to ask about packages, the stack or how an audit works.'
+               if CHAT_WIDGET_SRC else
+               'My own AI receptionist is being connected to this page. Until it is live, the audit form above and email both reach me directly.')
 BOOKING_BLOCK = (f'<div><h2>Prefer to pick a time?</h2><p>Book the 15-minute call directly.</p>'
                  f'<a class="btn btn--quiet btn--block ext" href="{BOOKING_URL}" {EXT}>Book a time{NEWTAB}</a></div>') if BOOKING_URL else ''
 contact = head('Request a 15-Minute AI Automation Audit | Contact Waqar Ahmed',
-               'Request a 15-minute AI automation audit for your renovation or home-service business: AI receptionist, GoHighLevel, n8n or website. Or email or message on LinkedIn.',
+               'Request a 15-minute AI automation audit for your remodeling business or GoHighLevel agency: AI receptionist, GoHighLevel pipeline or n8n workflow.',
                '/contact/', jsonld=graph(
                    crumbs(('Home', '/'), ('Contact', None)),
                    {"@type": "ContactPage", "@id": SITE + "/contact/#page", "url": SITE + "/contact/",
@@ -1188,7 +1299,7 @@ contact = head('Request a 15-Minute AI Automation Audit | Contact Waqar Ahmed',
         <div class="form-sheet">
           <h2 id="audit-title">Request an automation audit</h2>
           <p class="small">{FORM_NOTE}</p>
-          <form id="audit-form" class="audit-form" action="{FORM_ACTION}" method="post"{FORM_ENC} data-email="{EMAIL}" novalidate>
+          <form id="audit-form" class="audit-form" action="{FORM_ACTION}" method="post"{FORM_ENC} data-email="{EMAIL}" data-intake="{FORM_MODE}" novalidate>
             {FORM_HIDDEN}
             <div class="field">
               <label for="f-name">Full name <span class="req" aria-hidden="true">*</span></label>
@@ -1203,7 +1314,7 @@ contact = head('Request a 15-Minute AI Automation Audit | Contact Waqar Ahmed',
               <input id="f-phone" name="Phone or WhatsApp" type="tel" autocomplete="tel" inputmode="tel">
             </div>
             <div class="field">
-              <label for="f-trade">Trade type <span class="req" aria-hidden="true">*</span></label>
+              <label for="f-trade">Trade or business type <span class="req" aria-hidden="true">*</span></label>
               <select id="f-trade" name="Trade type" required>
                 <option value="">Choose one</option>
                 {''.join(f'<option>{x}</option>' for x in TRADES)}
@@ -1248,8 +1359,12 @@ contact = head('Request a 15-Minute AI Automation Audit | Contact Waqar Ahmed',
           </div>
           {BOOKING_BLOCK}
           <div>
+            <h2>Ask the {FLAGSHIP}</h2>
+            <p>{WIDGET_COPY}</p>
+          </div>
+          <div>
             <h2>Message me on LinkedIn</h2>
-            <p>LinkedIn is the quickest way to reach me. I am based in {BASE}, and work remotely with clients worldwide.</p>
+            <p>LinkedIn is the quickest way to reach me. I am based in {BASE}, and work remotely with contractors and GoHighLevel agencies in the US and UK.</p>
             <a class="btn btn--quiet btn--block ext" href="{LINKEDIN}" {EXT}>Message me on LinkedIn{NEWTAB}</a>
           </div>
           <div>
@@ -1262,7 +1377,7 @@ contact = head('Request a 15-Minute AI Automation Audit | Contact Waqar Ahmed',
       </div>
     </section>
   </main>
-''' + footer()
+''' + footer(widget=True)
 write('contact/index.html', contact)
 
 
@@ -1283,12 +1398,14 @@ def legal_page(path, title, desc, h1, lead, body):
     write(path.strip('/') + '/index.html', html)
 
 
-FORM_PRIVACY = ('The audit form does not store anything on this website: your answers are passed to Formspree, the form service that emails them to me.'
+FORM_PRIVACY = ('The audit form does not store anything on this website: your answers are passed to my n8n intake workflow, which saves them as a contact in my GoHighLevel account and emails them to me.'
+                if INTAKE_WEBHOOK_URL else
+                'The audit form does not store anything on this website: your answers are passed to Formspree, the form service that emails them to me.'
                 if FORMSPREE_ID else 'The audit form does not store anything on this website: it opens your own email app, and the details reach me only when you send that email.')
 legal_page('/privacy/', 'Privacy Policy | Waqar Ahmed', 'How Waqar Ahmed handles personal data from this website and enquiries, including GDPR, CCPA and SMS (A2P 10DLC) opt-in and opt-out.',
            'Privacy Policy', 'What personal data this website and my enquiry process use, why, and how you control it.', f'''
 <h2>Who I am</h2>
-<p>This website is run by Waqar Ahmed, an independent AI automation consultant (AI agents, GoHighLevel, n8n and websites) based in {BASE}, working remotely with clients worldwide ("I", "me"). For privacy questions, email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+<p>This website is run by Waqar Ahmed, an independent AI automation consultant (AI agents, GoHighLevel and n8n) based in {BASE}, working remotely with clients worldwide ("I", "me"). For privacy questions, email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
 <h2>What I collect</h2>
 <ul>
 <li><strong>Enquiry details you choose to send</strong>, such as your name, work email, phone or WhatsApp number, trade type and the bottleneck you describe. {FORM_PRIVACY}</li>
@@ -1306,7 +1423,7 @@ legal_page('/privacy/', 'Privacy Policy | Waqar Ahmed', 'How Waqar Ahmed handles
 <p>If you give a mobile number and agree to be contacted, I use it only for the purpose you agreed to. <strong>Mobile numbers and SMS opt-in data are never shared with or sold to third parties or affiliates for their marketing or promotional purposes.</strong> Message frequency varies, and message and data rates may apply.</p>
 <p>To stop text messages, reply <strong>STOP</strong> to any message. You can also email <a href="mailto:{EMAIL}">{EMAIL}</a> to opt out of any messages. Reply HELP for help.</p>
 <h2>Who receives data</h2>
-<p>I do not sell personal information. Data is processed by the services I use to run this site and my work: Cloudflare (hosting and analytics), {"Formspree (audit form delivery), " if FORMSPREE_ID else ""}Google (email), LinkedIn (if you message me there) and, for client projects, the client's own GoHighLevel and n8n accounts. When we work together, your business data stays in accounts you own.</p>
+<p>I do not sell personal information. Data is processed by the services I use to run this site and my work: Cloudflare (hosting and analytics), {"n8n and GoHighLevel (audit form intake), " if INTAKE_WEBHOOK_URL else "Formspree (audit form delivery), " if FORMSPREE_ID else ""}Google (email), LinkedIn (if you message me there) and, for client projects, the client's own GoHighLevel and n8n accounts. When we work together, your business data stays in accounts you own.</p>
 <h2>How long I keep it</h2>
 <p>I keep enquiry emails for as long as needed to respond and follow up, and delete them on request unless I must keep them for legal or accounting reasons.</p>
 <h2>Your rights (GDPR and UK GDPR)</h2>
@@ -1316,10 +1433,10 @@ legal_page('/privacy/', 'Privacy Policy | Waqar Ahmed', 'How Waqar Ahmed handles
 <h2>Contact and changes</h2>
 <p>To use any of these rights, email <a href="mailto:{EMAIL}">{EMAIL}</a>. I may update this policy; the date above shows the latest version.</p>''')
 
-legal_page('/terms/', 'Terms of Service | Waqar Ahmed', 'Terms for AI automation consulting by Waqar Ahmed: project scope, AI agent limits, your ownership of accounts via role-based invites, costs and portfolio disclosure.',
+legal_page('/terms/', 'Terms of Service | Waqar Ahmed', 'Terms for AI agent, GoHighLevel and n8n consulting by Waqar Ahmed: project scope, AI agent limits, account ownership, costs and portfolio disclosure.',
            'Terms of Service', 'The terms that apply when you use this website or work with me.', f'''
 <h2>About these terms</h2>
-<p>These terms apply to this website and to consulting work by Waqar Ahmed (AI automation, AI agents, GoHighLevel, n8n and website development). Each project also has a written scope, which takes priority if anything differs.</p>
+<p>These terms apply to this website and to consulting work by Waqar Ahmed (AI agents, GoHighLevel, n8n and Supabase RAG knowledge bases). Each project also has a written scope, which takes priority if anything differs.</p>
 <h2>Consulting scope</h2>
 <ul>
 <li>Work is agreed in a written scope that lists deliverables, turnaround, acceptance checks and any third-party costs before the build starts.</li>
@@ -1328,18 +1445,18 @@ legal_page('/terms/', 'Terms of Service | Waqar Ahmed', 'Terms for AI automation
 </ul>
 <h2>Your accounts, your ownership</h2>
 <ul>
-<li>You own 100% of your GoHighLevel, n8n, AI and website accounts, and the workflows, agents, knowledge bases, data and contacts in them.</li>
+<li>You own 100% of your GoHighLevel, n8n, Supabase and AI accounts, and the workflows, agents, knowledge bases, data and contacts in them.</li>
 <li>I work through role-based team-member invites with only the access the work needs. I never ask for your passwords.</li>
 <li>You can remove my access at any time.</li>
 </ul>
 <h2>Third-party services and costs</h2>
-<p>Subscriptions and usage charges for GoHighLevel, n8n, AI models, hosting, email, SMS or other tools are paid by you directly to those providers and follow their terms.</p>
+<p>Subscriptions and usage charges for GoHighLevel, n8n, Supabase, AI models, hosting, email, SMS or other tools are paid by you directly to those providers and follow their terms.</p>
 <h2>AI agents and their limits</h2>
 <p>AI agents and AI receptionists are built to answer from content you approve and to hand over to a person when they cannot. AI output can still be wrong. You decide what an agent may say and do, and you remain responsible for prices, commitments and advice given to your customers.</p>
 <h2>Messaging compliance</h2>
 <p>You are responsible for having consent to contact the people in your CRM. I will not build cold SMS or email campaigns to people who have not opted in.</p>
 <h2>Portfolio disclosure</h2>
-<p>The projects on this website were built for <strong>Elite Home Renovations, a practice account</strong> in my LOOP Institute of Applied AI course, using test or demo data. They show implementation skills. They are not paid client deployments, and results are labelled as tested in a sample run or as estimates.</p>
+<p>The projects on this website are <strong>reference / sandbox builds for Elite Home Renovations, a practice company</strong>, using test or demo data. They show implementation skills. They are not paid client work, and results are labelled as tested in a sample run, as build specs or as estimates. Any practice prices shown are typical ranges, not quotes.</p>
 <h2>No guaranteed results</h2>
 <p>I build and test carefully, but I cannot guarantee business outcomes such as revenue, bookings or time saved, or that AI output will always be correct, as these depend on factors outside the system.</p>
 <h2>Limitation of liability</h2>
@@ -1350,26 +1467,31 @@ legal_page('/terms/', 'Terms of Service | Waqar Ahmed', 'Terms for AI automation
 # ---------------------------------------------------------------- llms.txt
 LLMS = f"""# {BRAND}
 
-> {ROLE_TXT}. AI agents and automation for renovation, remodeling and home-service businesses: 24/7 AI website receptionists (RAG), GoHighLevel (GHL) and n8n systems, and AI-assisted websites. {LOCATION} {TAGLINE}
+> {ROLE_TXT}. Builds 24/7 AI website receptionists (RAG), GoHighLevel (GHL) pipelines, n8n workflows and Supabase (pgvector) knowledge bases for US and UK residential remodeling and home-improvement contractors, and white-label n8n + Supabase RAG backends for US and UK GoHighLevel marketing agencies. {LOCATION} {TAGLINE}
 
-Waqar Ahmed builds AI website receptionists that answer from a business's own approved content, lead systems in GoHighLevel, n8n workflows and AI agents, and conversion websites built with AI-assisted tools (Google Antigravity, Claude, Gemini, ChatGPT). Every enquiry is answered, followed up and accounted for, and decisions such as prices stay with a person. Clients keep full ownership of their accounts; he works through role-based team invites and never asks for passwords.
+Waqar Ahmed's client-facing work is AI agents, GoHighLevel, n8n workflows and Supabase RAG knowledge bases. The flagship service is the {FLAGSHIP}: a RAG knowledge base, a website chat widget, GoHighLevel and n8n lead operations. The AI agent answers from a business's own verified facts, and decisions such as prices and permit promises stay with a person. Clients keep full ownership of their accounts; he works through role-based team invites and never asks for passwords.
+
+## Who it is for
+- Direct clients: US and UK residential remodeling and home-improvement contractors ({TRADES_LINE}).
+- White-label partners: US and UK GoHighLevel marketing agencies that need a technical n8n + Supabase (pgvector) RAG backend specialist.
 
 ## About
-- Background: about eight years in branch banking operations at MCB Bank before moving into automation.
+- Background: about eight years in branch banking operations at MCB Bank before moving into automation. MBA (2015), BBA Honors (2013).
 - Working in AI automation since May 2022.
 - Training: {cert_line()}.
+- Stack: GoHighLevel, n8n, Supabase (pgvector), Google Gemini Embeddings, OpenAI and Claude APIs.
 - Location: {BASE}. {REACH}; all work is remote.
+- Handle: @opswaqarahmed
 - Contact: {SITE}/contact/ (15-minute workflow audit request), email {EMAIL} or {LINKEDIN}
 
-## Services
-""" + ''.join(f"- [{t}]({SITE}/services/): {d}\n" for t, d, _ in SERVICES) + f"""
-## Engagements
-""" + ''.join(f"- {n} ({d}): {w}\n" for n, d, w in TIERS) + f"""
-## Case studies (Elite Home Renovations)
-These are sandbox builds for Elite Home Renovations, a practice account in the LOOP Institute of Applied AI course, using test or demo data. They are not paid client deployments.
+## Packages and partner track
+""" + ''.join(f"- [{lab}: {t}]({SITE}/services/) ({st}): {d}\n" for lab, t, st, d, _ in SERVICES) + f"""
+## Reference builds (Elite Home Renovations)
+These are reference / sandbox builds for Elite Home Renovations, a practice company, using test or demo data. They are not paid client work.
 - [Website Estimate Assistant / {FLAGSHIP}]({SITE}/projects/website-estimate-assistant/): {CASES[0]['card']}
-- [From site visit to supplier quote]({SITE}/projects/supplier-quote-requests/): n8n + GHL supplier matching; one sample run found 4 matching suppliers with 0 send failures; about 17 hours a month saved is an estimate (8 site visits a week), not a measured result.
-""" + ''.join(f"- [{c['title']}]({SITE}/projects/{c['slug']}/): {c['card']}\n" for c in CASES[2:]) + f"""
+- [AI Knowledge Base and RAG Loader]({SITE}/projects/ai-knowledge-base-rag-loader/): 4-node linear n8n loader (Run to load knowledge base, Clear old knowledge, Elite Knowledge Text, Save to Supabase) with 3 helper nodes (Gemini Embeddings at vector(3072), Default Data Loader, Recursive Character Text Splitter at chunk size 900 / overlap 120), 8 structured policy sections, Row Level Security and a 1-click deduplicated refresh.
+- [Supplier quote automation]({SITE}/projects/supplier-quote-requests/): n8n + GoHighLevel supplier matching; one sample run found 4 matching suppliers with 0 send failures; about 17 hours a month saved is an estimate (8 site visits a week), not a measured result.
+""" + ''.join(f"- [{c['title']}]({SITE}/projects/{c['slug']}/): {c['card']}\n" for c in CASES[3:]) + f"""
 ## Key pages
 - [Home]({SITE}/)
 - [Services and FAQ]({SITE}/services/)
@@ -1380,11 +1502,11 @@ These are sandbox builds for Elite Home Renovations, a practice account in the L
 - [Terms of Service]({SITE}/terms/)
 
 ## Profiles
-""" + ''.join(f"- [{n}]({u})\n" for n, u in SOCIAL if u) + f"- [Published LOOP project]({LOOP_CASE})\n"
+""" + ''.join(f"- [{n}]({u})\n" for n, u in SOCIAL if u) + f"- [Published supplier quote project]({LOOP_CASE})\n"
 write('llms.txt', LLMS, raw=True)
 
 # ---------------------------------------------------------------- 404
-nf = head('Page not found | Waqar Ahmed', 'This page could not be found. Return to the Waqar Ahmed AI automation site.', '/404.html', noindex=True) + header('') + f'''
+nf = head('Page not found | Waqar Ahmed', 'This page could not be found. Return to the Waqar Ahmed AI agents, GoHighLevel and n8n site.', '/404.html', noindex=True) + header('') + f'''
   <main id="main" class="section notfound">
     <div class="container">
       <h1>This page isn't here.</h1>
@@ -1407,7 +1529,7 @@ write('sitemap.xml', sm, raw=True)
 
 write('site.webmanifest', json.dumps({
     "name": BRAND, "short_name": "Waqar Ahmed",
-    "description": "AI automation and agentic AI for renovation and home-service businesses.",
+    "description": "AI agents, GoHighLevel and n8n automation for US and UK remodeling contractors and GoHighLevel agencies.",
     "start_url": "/", "display": "browser", "background_color": "#F4F6F8", "theme_color": "#0B1626",
     "icons": [{"src": "/assets/img/wa-mark.svg", "sizes": "any", "type": "image/svg+xml"},
               {"src": "/assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"}]}, indent=2) + '\n', raw=True)

@@ -34,7 +34,9 @@
     var button = form.querySelector('button[type="submit"]');
     var buttonHtml = button ? button.innerHTML : "";
     var to = form.getAttribute("data-email") || "meetwith.waqarahmed@gmail.com";
-    var useFormspree = /^https:\/\/formspree\.io\/f\/[A-Za-z0-9]+$/.test(form.getAttribute("action") || "");
+    var action = form.getAttribute("action") || "";
+    var useWebhook = form.getAttribute("data-intake") === "webhook" && /^https:\/\//.test(action);
+    var useFormspree = useWebhook || /^https:\/\/formspree\.io\/f\/[A-Za-z0-9]+$/.test(action);
     var busy = false;
     var v = function (id) { return document.getElementById(id).value.trim(); };
     function mailtoHref() {
@@ -116,6 +118,7 @@
       var data = new FormData(form);
       data.set("Marketing consent", document.getElementById("f-marketing").checked ? "Yes" : "No");
       data.set("_subject", "Automation audit request: " + v("f-help") + " / " + v("f-trade"));
+      if (useWebhook) { data.set("page", window.location.href); data.set("submitted_at", new Date().toISOString()); }
       setBusy(true);
       status.textContent = "Sending your request...";
       fetch(form.action, { method: "POST", body: data, headers: { "Accept": "application/json" } })
@@ -123,7 +126,7 @@
           if (res.ok) {
             form.reset();
             Array.prototype.forEach.call(form.querySelectorAll("[aria-invalid]"), function (el) { el.removeAttribute("aria-invalid"); });
-            status.textContent = "Thank you. Your audit request was sent to " + to + ". I will reply by email.";
+            status.textContent = "Thank you. Your audit request was sent. I will reply by email.";
             status.setAttribute("tabindex", "-1");
             status.focus();
             return;
