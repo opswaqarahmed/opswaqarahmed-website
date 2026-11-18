@@ -1,6 +1,6 @@
 # Waqar Ahmed | AI Automation & Agentic AI
 
-> AI Automation & Agentic AI Specialist. Builds 24/7 AI website receptionists (RAG), GoHighLevel (GHL) pipelines, n8n workflows, and Supabase (pgvector) knowledge bases for residential remodeling, home-improvement, and service businesses worldwide, with modular backend architecture for GoHighLevel client sub-accounts. Based in Khairpur District, Sindh, Pakistan. Working remotely with clients worldwide. Make every lead move forward.
+> AI Automation & Agentic AI Specialist. Builds 24/7 AI website receptionists (RAG), GoHighLevel (GHL) pipelines, n8n workflows, and Supabase (pgvector) knowledge bases for home remodelers, residential contractors and home-service businesses worldwide, with modular backend architecture for GoHighLevel client sub-accounts. Based in Khairpur District, Sindh, Pakistan. Working remotely with clients worldwide. Make every lead move forward.
 
 Waqar Ahmed's client-facing services are strictly AI agents, GoHighLevel, n8n workflows, and Supabase RAG knowledge bases. The flagship service is the 24/7 AI Website Receptionist: a RAG knowledge base, a website chat widget, GoHighLevel, and n8n lead operations. The AI agent answers strictly from a business's own verified facts, while decisions regarding prices and permits stay with a human. Clients keep 100% ownership of their accounts; he works through role-based team invites and never asks for passwords.
 
