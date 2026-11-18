@@ -15,7 +15,7 @@ Waqar Ahmed's client-facing services are strictly AI agents, GoHighLevel, n8n wo
 - Stack: GoHighLevel, n8n, Supabase (pgvector), Google Gemini Embeddings, OpenAI and Claude APIs.
 - Location: Khairpur District, Sindh, Pakistan. Working remotely with clients worldwide; all delivery is remote.
 - Handle: @opswaqarahmed
-- Contact: https://opswaqarahmed.pages.dev/contact/ (15-minute workflow audit request), email meetwith.waqarahmed@gmail.com or https://www.linkedin.com/in/opswaqarahmed/
+- Contact: https://opswaqarahmed.pages.dev/contact/ (15-minute consultation request), email meetwith.waqarahmed@gmail.com or https://www.linkedin.com/in/opswaqarahmed/
 
 ## Productized Packages
 - [01: AI Knowledge Base Foundation](https://opswaqarahmed.pages.dev/services/) (n8n + Gemini Embeddings + Supabase pgvector): A one-click RAG library built across 8+ structured business policy sections, so AI assistants answer strictly from verified company facts instead of inventing prices or permit promises.
@@ -25,8 +25,8 @@ Waqar Ahmed's client-facing services are strictly AI agents, GoHighLevel, n8n wo
 ## Agency Callout
 - Available for direct business builds and technical backend partnerships with CRM & marketing agencies (modular GoHighLevel Sub-Account + n8n + Supabase pgvector architecture).
 
-## Reference Builds (Elite Home Renovations)
-These are reference / sandbox builds for Elite Home Renovations, a practice company, using test or demo data. They are not paid client work.
+## Demo Builds (Elite Home Renovations)
+These are demo builds for Elite Home Renovations, a practice company, using test or demo data. They are not paid client work.
 - [Website Estimate Assistant / 24/7 AI Website Receptionist](https://opswaqarahmed.pages.dev/projects/website-estimate-assistant/): A RAG agent and chat widget for the Elite Home Renovations website that answers visitor questions from the business's own verified facts, day or night. Offered to clients as the 24/7 AI Website Receptionist.
 - [AI Knowledge Base and RAG Loader](https://opswaqarahmed.pages.dev/projects/ai-knowledge-base-rag-loader/): 4-node linear n8n loader (Run to load knowledge base -> Clear old knowledge -> Elite Knowledge Text -> Save to Supabase) with 3 helper nodes (Gemini Embeddings at vector(3072), Default Data Loader, Recursive Character Text Splitter at chunk size 900 / overlap 120), 8 structured policy sections, Row Level Security, and a 1-click deduplicated refresh.
 - [Supplier quote automation](https://opswaqarahmed.pages.dev/projects/supplier-quote-requests/): n8n + GoHighLevel supplier matching; one sample run found 4 matching suppliers with 0 send failures; about 17 hours a month saved is an estimate (8 site visits a week), not a measured result.
@@ -48,10 +48,5 @@ These are reference / sandbox builds for Elite Home Renovations, a practice comp
 - [LinkedIn](https://www.linkedin.com/in/opswaqarahmed/)
 - [YouTube](https://www.youtube.com/@opswaqarahmed)
 - [GitHub](https://github.com/opswaqarahmed)
-- [X](https://x.com/opswaqarahmed)
-- [Facebook](https://www.facebook.com/opswaqarahmed)
-- [Instagram](https://www.instagram.com/opswaqarahmed/)
-- [Threads](https://www.threads.com/@opswaqarahmed)
-- [TikTok](https://www.tiktok.com/@opswaqarahmed)
-- [Linktree](https://linktr.ee/opswaqarahmed)
+- [All profiles (Linktree)](https://linktr.ee/opswaqarahmed)
 - [Published supplier quote project](https://loop.org.pk/student-projects/supplier-quote-request-automation-ghl-n8n/)

@@ -41,7 +41,7 @@
     var v = function (id) { return document.getElementById(id).value.trim(); };
     function mailtoHref() {
       var lines = [
-        "Automation audit request",
+        "Consultation request",
         "",
         "Full name: " + v("f-name"),
         "Work email: " + v("f-email"),
@@ -55,7 +55,7 @@
         "Contact consent (transactional): yes",
         "Marketing tips consent: " + (document.getElementById("f-marketing").checked ? "yes" : "no")
       ];
-      return "mailto:" + to + "?subject=" + encodeURIComponent("Automation audit request: " + v("f-help")) +
+      return "mailto:" + to + "?subject=" + encodeURIComponent("Consultation request: " + v("f-help")) +
         "&body=" + encodeURIComponent(lines.join("\n"));
     }
     function showError(msg, withEmailLink) {
@@ -117,7 +117,7 @@
       }
       var data = new FormData(form);
       data.set("Marketing consent", document.getElementById("f-marketing").checked ? "Yes" : "No");
-      data.set("_subject", "Automation audit request: " + v("f-help") + " / " + v("f-trade"));
+      data.set("_subject", "Consultation request: " + v("f-help") + " / " + v("f-trade"));
       if (useWebhook) { data.set("page", window.location.href); data.set("submitted_at", new Date().toISOString()); }
       setBusy(true);
       status.textContent = "Sending your request...";
@@ -126,7 +126,7 @@
           if (res.ok) {
             form.reset();
             Array.prototype.forEach.call(form.querySelectorAll("[aria-invalid]"), function (el) { el.removeAttribute("aria-invalid"); });
-            status.textContent = "Thank you. Your audit request was sent. I will reply by email.";
+            status.textContent = "Thank you. Your consultation request was sent. I will reply by email.";
             status.setAttribute("tabindex", "-1");
             status.focus();
             return;
