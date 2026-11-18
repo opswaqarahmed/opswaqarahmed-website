@@ -410,24 +410,36 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 .container.prose{max-width:calc(var(--max) + var(--gutter)*2)}
 .container.prose>*{max-width:800px}
 
-/* ---------- Cost calculator (shown only when JavaScript is on) ---------- */
-.calc{display:grid;gap:28px;margin-top:56px;padding:28px 22px;background:var(--sheet);border:1px solid var(--rule-strong);border-top:2px solid var(--navy)}
-.calc[hidden]{display:none}
-.calc h3{font:600 1.5rem/1.2 var(--serif);margin-bottom:10px}
-.calc p{color:var(--slate)}
-.calc-form{display:grid;gap:16px;align-content:start}
-.calc input[type=number]{width:100%;min-height:50px;padding:12px 14px;border:1.5px solid #8A988F;border-radius:6px;background:#fff;color:var(--ink);font:500 1.0625rem/1.4 var(--sans);font-variant-numeric:tabular-nums}
-.calc-out{padding-top:20px;border-top:1px solid var(--rule-strong)}
-.calc-label{font-weight:650;color:var(--ink)!important;margin-bottom:4px}
-.calc-big{font:600 2.75rem/1.05 var(--serif);font-variant-numeric:lining-nums;color:var(--ink)!important;margin-bottom:6px}
-.calc-cost{font-weight:650;color:var(--teal)!important}
-.calc-cost:empty{display:none}
-@media (min-width:900px){.calc{grid-template-columns:1fr 1fr 1fr;gap:44px;padding:36px 40px}.calc-out{padding:0 0 0 44px;border-top:0;border-left:1px solid var(--rule-strong)}}
+/* ---------- Elevated Lead Cost Calculator ---------- */
+.calc-card{margin-top:48px;padding:32px;background:var(--sheet);border:1px solid var(--rule-strong);border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.06);color:var(--ink)}
+.calc-card[hidden]{display:none}
+.calc-card-head{display:grid;gap:18px;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--rule-strong)}
+.calc-card-head h3{font:700 1.5rem/1.25 var(--serif);color:var(--ink);margin:0 0 8px}
+.calc-card-head p{color:var(--slate);margin:0;max-width:70ch}
+.calc-presets{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.calc-preset-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:#fff;border:1.5px solid var(--rule-strong);border-radius:8px;font:600 .84rem/1.2 var(--sans);color:var(--ink);cursor:pointer;transition:all .2s ease}
+.calc-preset-btn small{color:var(--slate);font-weight:400}
+.calc-preset-btn:hover{border-color:var(--teal);background:rgba(11,117,104,.04)}
+.calc-preset-btn.is-active{background:var(--navy-deep);color:#fff;border-color:var(--navy-deep);box-shadow:0 4px 12px rgba(11,22,38,.2)}
+.calc-preset-btn.is-active small{color:var(--mint-soft)}
+.calc-body{display:grid;gap:28px;align-items:start}
+@media (min-width:860px){.calc-body{grid-template-columns:1.2fr 1fr;gap:36px}}
+.calc-form{display:grid;gap:16px}
+.calc-form .field label{font:600 .88rem/1.3 var(--sans);color:var(--ink);margin-bottom:6px;display:block}
+.calc-form .field .hint{font-weight:400;font-size:.82rem;color:var(--slate)}
+.calc-form input[type=number]{width:100%;min-height:48px;padding:10px 14px;border:1.5px solid #8A988F;border-radius:6px;background:#fff;color:var(--ink);font:600 1.05rem/1.4 var(--sans);font-variant-numeric:tabular-nums}
+.calc-results{padding:24px;background:#fff;border:1px solid var(--rule-strong);border-left:4px solid var(--teal);border-radius:8px;display:grid;gap:18px}
+.calc-metric-label{font:700 .78rem/1.2 var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--slate);margin:0 0 4px}
+.calc-metric-value{font:700 2.75rem/1 var(--serif);color:var(--ink);font-variant-numeric:tabular-nums;margin:0 0 6px}
+.calc-metric-unit{font:400 1.15rem/1 var(--sans);color:var(--slate)}
+.calc-metric-cost{font:650 1.08rem/1.3 var(--sans);color:var(--teal);margin:0}
+.calc-annual-val{font:700 1.25rem/1.2 var(--sans);color:var(--ink);margin:0 0 4px}
+.calc-note{font-size:.82rem;color:var(--slate);margin:0;line-height:1.4}
 .footer-brand .meta span{display:block}
 
 /* ---------- v3 additions: AI & agentic layer ---------- */
 .kicker--pill{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border:1px solid rgba(61,217,193,.45);border-radius:999px;background:rgba(61,217,193,.08);color:var(--mint-soft)!important;letter-spacing:.06em}
-.kicker--pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px var(--mint)}
+.kicker--pill::before{display:none}
 .hero h1 .glow{color:var(--mint);background:linear-gradient(90deg,#3DD9C1 0%,#8FB4FF 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 @media (forced-colors:active){.hero h1 .glow{-webkit-text-fill-color:currentColor;background:none}}
 .page-hero .kicker{color:var(--mint)}
@@ -464,3 +476,9 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px soli
 .video{position:relative;aspect-ratio:16/9;width:100%;background:var(--navy);border-radius:10px;overflow:hidden}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .video-empty{position:absolute;inset:0;display:grid;place-items:center;margin:0;padding:24px;text-align:center;color:var(--on-navy-muted)}
+
+/* ---------- v32: agency callout ---------- */
+.agency-callout{margin-top:40px;padding:24px 28px;background:var(--sheet);border:1px solid var(--rule-strong);border-left:4px solid var(--teal);border-radius:0 8px 8px 0}
+.agency-callout h3{font:700 1.15rem/1.3 var(--sans);color:var(--ink);margin:0 0 8px}
+.agency-callout p{margin:0;color:var(--slate);font-size:.95rem;line-height:1.5}
+.agency-callout p+p{margin-top:8px}
