@@ -299,17 +299,6 @@ def write(path, html, raw=False):
     f.write_text(html if raw else tidy(html), encoding='utf-8')
 
 
-
-# ---------------------------------------------------------------- BUILD 1 READINESS (Plug in when Build 1 is recorded)
-BUILD_1_READY = {
-    'status': 'In preparation',
-    'demo_video_url': '',
-    'client_clip_url': '',
-    'github_repo_url': '',
-    'shots': [],
-    'notes': 'Prepared to plug in Build 1 (24/7 AI Website Receptionist: n8n AI Agent + Supabase pgvector RAG + GoHighLevel booking & handoff) across Home, AI Receptionist, and Work pages.',
-}
-
 # ---------------------------------------------------------------- Shared content
 # (label, title, stack, description, bullets). Three productized packages.
 SERVICES = [
@@ -1439,7 +1428,7 @@ contact = head('Book a 15-Minute Consultation | Contact Waqar Ahmed',
           </div>
           <div>
             <h2>Prefer email?</h2>
-            <p class="email-line"><a href="mailto:{EMAIL}" id="biz-email">{EMAIL}</a><br><a href="mailto:opswaqarahmed@gmail.com">opswaqarahmed@gmail.com</a></p>
+            <p class="email-line"><a href="mailto:{EMAIL}" id="biz-email">{EMAIL}</a></p>
             <button class="btn btn--quiet btn--small copy-btn" type="button" data-copy="{EMAIL}">Copy email address</button>
             <p class="small copy-status" role="status" aria-live="polite"></p>
           </div>
@@ -1553,7 +1542,7 @@ Waqar Ahmed's client-facing services are strictly AI agents, GoHighLevel, n8n wo
 - Stack: GoHighLevel, n8n, AI Agents, Supabase (pgvector), Google Gemini Embeddings.
 - Location: {BASE}. {REACH}; all delivery is remote.
 - Handle: @opswaqarahmed
-- Contact: {SITE}/contact/ (15-minute consultation request), email {EMAIL} or opswaqarahmed@gmail.com, or {LINKEDIN}
+- Contact: {SITE}/contact/ (15-minute consultation request), email {EMAIL} or {LINKEDIN}
 
 ## Productized Packages
 """ + ''.join(f"- [{lab}: {t}]({SITE}/services/) ({st}): {d}\n" for lab, t, st, d, _ in SERVICES) + f"""

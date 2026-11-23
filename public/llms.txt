@@ -16,7 +16,7 @@ Waqar Ahmed's client-facing services are strictly AI agents, GoHighLevel, n8n wo
 - Stack: GoHighLevel, n8n, AI Agents, Supabase (pgvector), Google Gemini Embeddings.
 - Location: Khairpur District, Sindh, Pakistan. Working remotely with clients worldwide; all delivery is remote.
 - Handle: @opswaqarahmed
-- Contact: https://opswaqarahmed.pages.dev/contact/ (15-minute consultation request), email meetwith.waqarahmed@gmail.com or opswaqarahmed@gmail.com, or https://www.linkedin.com/in/opswaqarahmed/
+- Contact: https://opswaqarahmed.pages.dev/contact/ (15-minute consultation request), email meetwith.waqarahmed@gmail.com or https://www.linkedin.com/in/opswaqarahmed/
 
 ## Productized Packages
 - [01: AI Knowledge Base Foundation](https://opswaqarahmed.pages.dev/services/) (n8n + Gemini Embeddings + Supabase pgvector): A one-click RAG library built across 8+ structured business policy sections, so AI assistants answer strictly from verified company facts instead of inventing prices or permit promises.
