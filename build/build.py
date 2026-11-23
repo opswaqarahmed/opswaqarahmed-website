@@ -1,6 +1,6 @@
 """Build the whole static site into ../public.
 
-Brand v3.4 ("Agent Ledger": AI Automation). Everything a visitor reads is defined in this file:
+Brand v3.5 ("Agent Ledger": AI Automation). Everything a visitor reads is defined in this file:
 header, footer, every page, structured data, sitemap.xml, llms.txt.
 The stylesheet source is build/site.src.css and the script source is build/main.src.js;
 this script copies both into public/.
@@ -18,8 +18,8 @@ OUT = pathlib.Path(os.environ.get('SITE_OUT') or HERE.parent / 'public')
 # AI agents, GoHighLevel, n8n and Supabase RAG knowledge bases are the delivery stack, named in all public copy.
 # Scope rule: no website-development or browser-extension services anywhere on the site.
 BRAND_DESCRIPTOR = 'AI Automation'
-ROLE = 'AI Automation Specialist'        # job title used in hero kicker, About, structured data
-ROLE_TXT = 'AI Automation Specialist'
+ROLE = 'AI Automation Expert'        # job title used in hero kicker, About, structured data
+ROLE_TXT = 'AI Automation Expert'
 LOCKUP_LINE = 'AI automation'          # small line under the name in the header and footer
 BRAND = f'Waqar Ahmed | {BRAND_DESCRIPTOR}'
 BRAND_HTML = BRAND.replace('&', '&amp;')
@@ -39,7 +39,7 @@ EMAIL = 'meetwith.waqarahmed@gmail.com'  # shown on the site; keep the Formspree
 LINKEDIN = 'https://www.linkedin.com/in/opswaqarahmed/'
 LOOP_CASE = 'https://loop.org.pk/student-projects/supplier-quote-request-automation-ghl-n8n/'
 UPDATED = ('2026-11-23', '23 November 2026')
-ASSET_V = '38'                           # bump when css/js change, so browsers fetch the new files
+ASSET_V = '39'                           # bump when css/js change, so browsers fetch the new files
 
 # Social links shown in the footer and llms.txt: only the channels a buyer needs (brand guide v3.1).
 # All profiles use the username opswaqarahmed. The full list stays in SAME_AS for structured data.
@@ -199,7 +199,7 @@ def footer(widget=False):
 '''
 
 
-OG_ALT = 'Waqar Ahmed, AI Automation Specialist. Make every lead move forward. 24/7 AI website receptionists, GoHighLevel pipelines, n8n workflows, and Supabase pgvector RAG for home remodelers, residential contractors and home-service businesses worldwide.'
+OG_ALT = 'Waqar Ahmed, AI Automation Expert. Make every lead move forward. 24/7 AI website receptionists, GoHighLevel pipelines, n8n workflows, and Supabase pgvector RAG for home remodelers, residential contractors and home-service businesses worldwide.'
 
 
 def head(title, desc, path, og_type='website', jsonld=None, noindex=False):
@@ -302,12 +302,12 @@ def write(path, html, raw=False):
 
 # ---------------------------------------------------------------- BUILD 1 READINESS (Plug in when Build 1 is recorded)
 BUILD_1_READY = {
-    'status': 'In preparation (Apex Remodeling & Design demo)',
+    'status': 'In preparation',
     'demo_video_url': '',
     'client_clip_url': '',
     'github_repo_url': '',
     'shots': [],
-    'notes': 'Prepared to plug in Build 1 (n8n AI Agent + Supabase pgvector RAG + GoHighLevel booking & handoff) across Home, AI Receptionist, and Work pages.',
+    'notes': 'Prepared to plug in Build 1 (24/7 AI Website Receptionist: n8n AI Agent + Supabase pgvector RAG + GoHighLevel booking & handoff) across Home, AI Receptionist, and Work pages.',
 }
 
 # ---------------------------------------------------------------- Shared content
@@ -403,7 +403,7 @@ PERSON = {
     "@type": "Person", "@id": SITE + "/#person", "name": "Waqar Ahmed", "alternateName": BRAND, "url": SITE + "/",
     "image": SITE + (HEADSHOT or "/assets/img/apple-touch-icon.png"),
     "jobTitle": ROLE_TXT,
-    "description": "AI Automation Specialist: 24/7 AI website receptionists (RAG), GoHighLevel pipelines, n8n workflows, and Supabase pgvector knowledge bases for home remodelers, residential contractors and home-service businesses worldwide, with modular backend architecture for GoHighLevel client sub-accounts. MBA, BBA (Honors), ~8 years in branch banking operations at MCB Bank. Based in Khairpur District, Sindh, Pakistan; working remotely worldwide.",
+    "description": "AI Automation Expert: 24/7 AI website receptionists (RAG), GoHighLevel pipelines, n8n workflows, and Supabase pgvector knowledge bases for home remodelers, residential contractors and home-service businesses worldwide, with modular backend architecture for GoHighLevel client sub-accounts. MBA, BBA (Honors), ~8 years in branch banking operations at MCB Bank. Based in Khairpur District, Sindh, Pakistan; working remotely worldwide.",
     "address": {"@type": "PostalAddress", "addressLocality": "Khairpur District", "addressRegion": "Sindh", "addressCountry": "PK"},
     "knowsAbout": ["AI automation", "AI agents", "AI website receptionist", "Retrieval-augmented generation (RAG)", "GoHighLevel", "n8n", "Supabase pgvector", "Google Gemini embeddings", "Workflow automation", "CRM automation", "Lead qualification", "Supplier quote automation"],
     "hasCredential": {"@type": "EducationalOccupationalCredential", "name": "LOOP GoHighLevel certification training (completed)",
@@ -562,9 +562,8 @@ def case_list(cases=CASES):
         f'<p>{c["card"]}</p>{chip(*c["chip"])}</li>' for c in cases) + '</ul>'
 
 
-SANDBOX_LINE = ('These are demo builds for a sample company (Demo) from my LOOP GoHighLevel training, '
-                'using test data. They show how I build with AI agents, GoHighLevel and n8n. They are not paid client work. '
-                'From January 2027, a complete 13-part system for a second demo company, Apex Remodeling &amp; Design, is added here, one build a week.')
+SANDBOX_LINE = ('These are demo builds for a sample company using test data. '
+                'They show how I build with AI agents, GoHighLevel and n8n, and are not paid client work.')
 N_CASES = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'][len(CASES)]
 
 # ---------------------------------------------------------------- Home
@@ -641,8 +640,8 @@ STACK = [('AI Agents & RAG', 'Knowledge bases, semantic retrieval, and agent ste
 STACK_HTML = ('<ul class="stack-strip" aria-label="What I build with">' +
               ''.join(f'<li><strong>{a}</strong><span>{b}</span></li>' for a, b in STACK) + '</ul>')
 
-home_title = 'Waqar Ahmed | AI Automation Specialist'
-home_desc = ('AI Automation Specialist. 24/7 AI website receptionists, GoHighLevel pipelines, and n8n workflows for home remodelers, residential contractors and home-service businesses worldwide.')
+home_title = 'Waqar Ahmed | AI Automation Expert'
+home_desc = ('AI Automation Expert. 24/7 AI website receptionists, GoHighLevel pipelines, and n8n workflows for home remodelers, residential contractors and home-service businesses worldwide.')
 home_ld = graph(
     {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": BRAND,
      "alternateName": "Waqar Ahmed", "inLanguage": "en", "publisher": {"@id": SITE + "/#person"}},
@@ -937,10 +936,10 @@ write('projects/index.html', proj)
 
 # ---------------------------------------------------------------- About
 if HEADSHOT:
-    PORTRAIT = f'<div class="portrait"><img src="{HEADSHOT}" alt="Waqar Ahmed — AI Automation Specialist" width="800" height="800"></div>'
+    PORTRAIT = f'<div class="portrait"><img src="{HEADSHOT}" alt="Waqar Ahmed — AI Automation Expert" width="800" height="800"></div>'
 else:
     PORTRAIT = '<div class="portrait portrait--mark"><img src="/assets/img/wa-mark.svg" alt="WA monogram, the Waqar Ahmed logo" width="128" height="128" loading="lazy"></div>'
-about = head('About Waqar Ahmed | AI Automation Specialist',
+about = head('About Waqar Ahmed | AI Automation Expert',
              'Waqar Ahmed builds AI agents, GoHighLevel pipelines and n8n workflows for home remodelers, residential contractors and home-service businesses worldwide. MBA, BBA (Honors), ~8 years in bank operations.',
              '/about/', jsonld=graph(PERSON, PRO_SERVICE, crumbs(('Home', '/'), ('About', None)))) + header('/about/') + f'''
   <main id="main">
@@ -952,11 +951,11 @@ about = head('About Waqar Ahmed | AI Automation Specialist',
         </div>
         <div>
           <h2 id="about-title">Hi, I'm Waqar Ahmed.</h2>
-          <p style="margin-top:20px">I'm an <strong>{ROLE}</strong> (and AI Automation Expert at <strong>Bizko</strong>) (<code>@opswaqarahmed</code>). I work with home remodelers ({TRADES_LINE}), residential contractors and home-service businesses worldwide, and with the GoHighLevel agencies that serve them. I build four core systems: Supabase pgvector RAG knowledge bases, 24/7 AI website receptionists that answer from a business's own verified facts, GoHighLevel pipelines, and n8n workflows and AI agents.</p>
+          <p style="margin-top:20px">I'm an <strong>{ROLE}</strong> at <strong>Bizko</strong> and independently under <code>@opswaqarahmed</code>. I work with home remodelers ({TRADES_LINE}), residential contractors and home-service businesses worldwide, and with the GoHighLevel agencies that serve them. I build four core systems: Supabase pgvector RAG knowledge bases, 24/7 AI website receptionists that answer from a business's own verified facts, GoHighLevel pipelines, and n8n workflows and AI agents.</p>
           <p>Before automation, I spent about eight years in branch banking operations at MCB Bank, after earning my BBA (Honors) in 2013 and MBA in 2015. In a branch, every transaction is checked, owned and reconciled before the day closes. I build AI agents, GoHighLevel pipelines and n8n workflows to that same operational standard: duplicate checks, graceful error branches, a person signing off prices and promises, and an immutable record of what each agent did.</p>
           <p>I have worked in AI automation since May 2022. I aim to make AI understandable, robust, and dependable: clear statuses, safe retries, actionable alerts, and honest reporting about what an agent or automation did.</p>
           <dl class="facts" style="margin-top:32px">
-            <div><dt>Role</dt><dd>{ROLE} · AI Automation Expert at Bizko (@opswaqarahmed)</dd></div>
+            <div><dt>Role</dt><dd>{ROLE} · Bizko &amp; @opswaqarahmed</dd></div>
             <div><dt>Focus</dt><dd>Remodeling &amp; service businesses worldwide, plus CRM &amp; marketing agencies</dd></div>
             <div><dt>Builds</dt><dd>24/7 AI website receptionists (RAG), Supabase knowledge bases, GoHighLevel pipelines, n8n workflows and AI agents</dd></div>
             <div><dt>Tools</dt><dd>GoHighLevel, n8n, AI Agents, Supabase (pgvector), Google Gemini Embeddings</dd></div>
@@ -1547,7 +1546,7 @@ Waqar Ahmed's client-facing services are strictly AI agents, GoHighLevel, n8n wo
 - Agency partners: CRM and marketing agencies seeking clean, modular GoHighLevel Sub-Account + n8n + Supabase pgvector backend builds and technical partnerships.
 
 ## About
-- Role: AI Automation Specialist (@opswaqarahmed) · AI Automation Expert at Bizko.
+- Role: AI Automation Expert · Bizko & @opswaqarahmed.
 - Background: About eight years in branch banking operations at MCB Bank Limited before specializing in AI automation. MBA (2015), BBA (Honors) (2013).
 - Specializing in AI automation since May 2022.
 - Training: {cert_line()}.

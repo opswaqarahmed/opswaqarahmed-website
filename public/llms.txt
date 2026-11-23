@@ -1,6 +1,6 @@
 # Waqar Ahmed | AI Automation
 
-> AI Automation Specialist. Builds 24/7 AI website receptionists (RAG), GoHighLevel (GHL) pipelines, n8n workflows, and Supabase (pgvector) knowledge bases for home remodelers, residential contractors and home-service businesses worldwide, with modular backend architecture for GoHighLevel client sub-accounts. Based in Khairpur District, Sindh, Pakistan. Working remotely with clients worldwide. Make every lead move forward.
+> AI Automation Expert. Builds 24/7 AI website receptionists (RAG), GoHighLevel (GHL) pipelines, n8n workflows, and Supabase (pgvector) knowledge bases for home remodelers, residential contractors and home-service businesses worldwide, with modular backend architecture for GoHighLevel client sub-accounts. Based in Khairpur District, Sindh, Pakistan. Working remotely with clients worldwide. Make every lead move forward.
 
 Waqar Ahmed's client-facing services are strictly AI agents, GoHighLevel, n8n workflows, and Supabase RAG knowledge bases. The flagship service is the 24/7 AI Website Receptionist: a RAG knowledge base, a website chat widget, GoHighLevel, and n8n lead operations. The AI agent answers strictly from a business's own verified facts, while decisions regarding prices and permits stay with a human. Clients keep 100% ownership of their accounts; he works through role-based team invites and never asks for passwords.
 
@@ -9,7 +9,7 @@ Waqar Ahmed's client-facing services are strictly AI agents, GoHighLevel, n8n wo
 - Agency partners: CRM and marketing agencies seeking clean, modular GoHighLevel Sub-Account + n8n + Supabase pgvector backend builds and technical partnerships.
 
 ## About
-- Role: AI Automation Specialist (@opswaqarahmed) · AI Automation Expert at Bizko.
+- Role: AI Automation Expert · Bizko & @opswaqarahmed.
 - Background: About eight years in branch banking operations at MCB Bank Limited before specializing in AI automation. MBA (2015), BBA (Honors) (2013).
 - Specializing in AI automation since May 2022.
 - Training: LOOP Institute of Applied AI, GoHighLevel certification training: completed.
