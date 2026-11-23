@@ -1,4 +1,4 @@
-# Waqar Ahmed | AI Automation & Agentic AI: 24/7 AI website receptionists, GoHighLevel pipelines, n8n workflows, and Supabase pgvector RAG for home remodelers, residential contractors and home-service businesses worldwide.
+# Waqar Ahmed | AI Automation: 24/7 AI website receptionists, GoHighLevel pipelines, n8n workflows, and Supabase pgvector RAG for home remodelers, residential contractors and home-service businesses worldwide.
 # Search engines and AI assistants are welcome to read and cite this site.
 # A summary for AI tools is at /llms.txt
 

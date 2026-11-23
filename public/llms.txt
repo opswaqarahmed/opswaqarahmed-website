@@ -1,6 +1,6 @@
-# Waqar Ahmed | AI Automation & Agentic AI
+# Waqar Ahmed | AI Automation
 
-> AI Automation & Agentic AI Specialist. Builds 24/7 AI website receptionists (RAG), GoHighLevel (GHL) pipelines, n8n workflows, and Supabase (pgvector) knowledge bases for home remodelers, residential contractors and home-service businesses worldwide, with modular backend architecture for GoHighLevel client sub-accounts. Based in Khairpur District, Sindh, Pakistan. Working remotely with clients worldwide. Make every lead move forward.
+> AI Automation Specialist. Builds 24/7 AI website receptionists (RAG), GoHighLevel (GHL) pipelines, n8n workflows, and Supabase (pgvector) knowledge bases for home remodelers, residential contractors and home-service businesses worldwide, with modular backend architecture for GoHighLevel client sub-accounts. Based in Khairpur District, Sindh, Pakistan. Working remotely with clients worldwide. Make every lead move forward.
 
 Waqar Ahmed's client-facing services are strictly AI agents, GoHighLevel, n8n workflows, and Supabase RAG knowledge bases. The flagship service is the 24/7 AI Website Receptionist: a RAG knowledge base, a website chat widget, GoHighLevel, and n8n lead operations. The AI agent answers strictly from a business's own verified facts, while decisions regarding prices and permits stay with a human. Clients keep 100% ownership of their accounts; he works through role-based team invites and never asks for passwords.
 
@@ -9,13 +9,14 @@ Waqar Ahmed's client-facing services are strictly AI agents, GoHighLevel, n8n wo
 - Agency partners: CRM and marketing agencies seeking clean, modular GoHighLevel Sub-Account + n8n + Supabase pgvector backend builds and technical partnerships.
 
 ## About
-- Background: About eight years in branch banking operations at MCB Bank before specializing in AI automation. MBA (2015), BBA (Honors) (2013).
+- Role: AI Automation Specialist (@opswaqarahmed) · AI Automation Expert at Bizko.
+- Background: About eight years in branch banking operations at MCB Bank Limited before specializing in AI automation. MBA (2015), BBA (Honors) (2013).
 - Specializing in AI automation since May 2022.
 - Training: LOOP Institute of Applied AI, GoHighLevel certification training: completed.
-- Stack: GoHighLevel, n8n, Supabase (pgvector), Google Gemini Embeddings, OpenAI and Claude APIs.
+- Stack: GoHighLevel, n8n, AI Agents, Supabase (pgvector), Google Gemini Embeddings.
 - Location: Khairpur District, Sindh, Pakistan. Working remotely with clients worldwide; all delivery is remote.
 - Handle: @opswaqarahmed
-- Contact: https://opswaqarahmed.pages.dev/contact/ (15-minute consultation request), email meetwith.waqarahmed@gmail.com or https://www.linkedin.com/in/opswaqarahmed/
+- Contact: https://opswaqarahmed.pages.dev/contact/ (15-minute consultation request), email meetwith.waqarahmed@gmail.com or opswaqarahmed@gmail.com, or https://www.linkedin.com/in/opswaqarahmed/
 
 ## Productized Packages
 - [01: AI Knowledge Base Foundation](https://opswaqarahmed.pages.dev/services/) (n8n + Gemini Embeddings + Supabase pgvector): A one-click RAG library built across 8+ structured business policy sections, so AI assistants answer strictly from verified company facts instead of inventing prices or permit promises.
@@ -25,9 +26,9 @@ Waqar Ahmed's client-facing services are strictly AI agents, GoHighLevel, n8n wo
 ## Agency Callout
 - Available for direct business builds and technical backend partnerships with CRM & marketing agencies (modular GoHighLevel Sub-Account + n8n + Supabase pgvector architecture).
 
-## Demo Builds (Elite Home Renovations)
-These are demo builds for Elite Home Renovations, a practice company, using test or demo data. They are not paid client work.
-- [Website Estimate Assistant / 24/7 AI Website Receptionist](https://opswaqarahmed.pages.dev/projects/website-estimate-assistant/): A RAG agent and chat widget for the Elite Home Renovations website that answers visitor questions from the business's own verified facts, day or night. Offered to clients as the 24/7 AI Website Receptionist.
+## Demo Builds (Sample Company)
+These are demo builds for a sample company (Demo), using test or demo data. They are not paid client work.
+- [Website Estimate Assistant / 24/7 AI Website Receptionist](https://opswaqarahmed.pages.dev/projects/website-estimate-assistant/): A RAG agent and chat widget for a sample company website that answers visitor questions from the business's own verified facts, day or night. Offered to clients as the 24/7 AI Website Receptionist.
 - [AI Knowledge Base and RAG Loader](https://opswaqarahmed.pages.dev/projects/ai-knowledge-base-rag-loader/): 4-node linear n8n loader (Run to load knowledge base -> Clear old knowledge -> Elite Knowledge Text -> Save to Supabase) with 3 helper nodes (Gemini Embeddings at vector(3072), Default Data Loader, Recursive Character Text Splitter at chunk size 900 / overlap 120), 8 structured policy sections, Row Level Security, and a 1-click deduplicated refresh.
 - [Supplier quote automation](https://opswaqarahmed.pages.dev/projects/supplier-quote-requests/): n8n + GoHighLevel supplier matching; one sample run found 4 matching suppliers with 0 send failures; about 17 hours a month saved is an estimate (8 site visits a week), not a measured result.
 - [Quote intake and lead scoring](https://opswaqarahmed.pages.dev/projects/quote-intake-followup/): An 8-node n8n workflow scores new GoHighLevel contacts every 10 minutes and routes hot, warm and nurture leads to the right next step.
